@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/simple-form",
+      "comment": "Simplify email validation",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/simple-form"
+}

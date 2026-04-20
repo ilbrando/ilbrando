@@ -2,6 +2,18 @@
   "name": "@ilbrando/simple-form-material-ui",
   "entries": [
     {
+      "version": "4.0.3",
+      "tag": "@ilbrando/simple-form-material-ui_v4.0.3",
+      "date": "Mon, 20 Apr 2026 05:13:30 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/simple-form\" to `3.2.1`"
+          }
+        ]
+      }
+    },
+    {
       "version": "4.0.2",
       "tag": "@ilbrando/simple-form-material-ui_v4.0.2",
       "date": "Tue, 24 Mar 2026 20:03:51 GMT",

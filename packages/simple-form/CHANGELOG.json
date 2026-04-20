@@ -2,6 +2,18 @@
   "name": "@ilbrando/simple-form",
   "entries": [
     {
+      "version": "3.2.1",
+      "tag": "@ilbrando/simple-form_v3.2.1",
+      "date": "Mon, 20 Apr 2026 05:13:30 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Simplify email validation"
+          }
+        ]
+      }
+    },
+    {
       "version": "3.2.0",
       "tag": "@ilbrando/simple-form_v3.2.0",
       "date": "Tue, 24 Mar 2026 20:03:51 GMT",

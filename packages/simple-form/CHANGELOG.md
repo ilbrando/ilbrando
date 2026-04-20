@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/simple-form
 
-This log was last generated on Tue, 24 Mar 2026 20:03:51 GMT and should not be manually modified.
+This log was last generated on Mon, 20 Apr 2026 05:13:30 GMT and should not be manually modified.
+
+## 3.2.1
+Mon, 20 Apr 2026 05:13:30 GMT
+
+### Patches
+
+- Simplify email validation
 
 ## 3.2.0
 Tue, 24 Mar 2026 20:03:51 GMT

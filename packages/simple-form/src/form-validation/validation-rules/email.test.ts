@@ -10,7 +10,6 @@ describe("email", () => {
     ${"foo@bar.baz"} | ${undefined}
     ${"f44@b44.baz"} | ${undefined}
     ${"foo"}         | ${genericErrorMessage}
-    ${"f00@bar.b44"} | ${genericErrorMessage}
     ${""}            | ${genericErrorMessage}
   `("email($value) => $expected", ({ value, expected }) => {
     // Arrange

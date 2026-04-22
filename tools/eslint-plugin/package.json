@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ilbrando/simple-form.git",
+    "url": "https://github.com/ilbrando/ilbrando.git",
     "directory": "tools/eslint-plugin"
   },
-  "homepage": "https://github.com/ilbrando/simple-form",
+  "homepage": "https://github.com/ilbrando/ilbrando",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "type": "module",

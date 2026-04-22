@@ -219,7 +219,7 @@
      * your PR branch, and in this situation "rush change" will also automatically invoke "git fetch"
      * to retrieve the latest activity for the remote main branch.
      */
-    "url": "https://github.com/ilbrando/simple-form",
+    "url": "https://github.com/ilbrando/ilbrando",
     /**
      * The default branch name. This tells "rush change" which remote branch to compare against.
      * The default value is "main"

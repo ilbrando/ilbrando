@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/simple-form-material-ui",
+      "comment": "Rename repo",
+      "type": "none"
+    }
+  ],
+  "packageName": "@ilbrando/simple-form-material-ui"
+}

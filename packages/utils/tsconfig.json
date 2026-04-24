@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "outDir": "lib",
-    "baseUrl": "./",
-    "paths": { "src": ["src"] }
+    "paths": { "src/*": ["./src/*"] },
+    "declaration": true,
+    "declarationMap": true
   },
   "include": ["src"]
 }

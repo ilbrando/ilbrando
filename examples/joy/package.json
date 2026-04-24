@@ -13,21 +13,21 @@
     "@ilbrando/utils": "workspace:*",
     "@ilbrando/simple-form": "workspace:*",
     "@ilbrando/simple-form-joy": "workspace:*",
-    "react": "^19.2.1",
+    "react": "~19.2.5",
     "react-dom": "^19.2.1",
-    "@mui/joy": "^5.0.0-beta.36",
+    "@mui/joy": "~5.0.0-beta.52",
     "@mui/icons-material": "^5",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11"
+    "@emotion/react": "~11.14.0",
+    "@emotion/styled": "~11.14.1"
   },
   "devDependencies": {
     "@ilbrando/eslint-plugin": "workspace:*",
-    "@types/react": "~19.2.7",
+    "@types/react": "~19.2.14",
     "@types/react-dom": "~19.2.3",
-    "eslint": "~9.16.0",
-    "typescript": "~5.9",
+    "eslint": "~10.2.1",
+    "typescript": "~6.0.3",
     "vite": "~8.0.10",
-    "@vitejs/plugin-react": "~4.3.4",
-    "globals": "~15.4.0"
+    "@vitejs/plugin-react": "~6.0.1",
+    "globals": "~17.5.0"
   }
 }

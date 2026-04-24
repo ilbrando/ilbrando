@@ -22,7 +22,7 @@ jobs:
         run: npx playwright@1.57.0 install --with-deps
       - name: Rush test
         run: node common/scripts/install-run-rush.js test
-      - name: Upload Playwright report - simple-form-jou
+      - name: Upload Playwright report - simple-form-joy
         uses: actions/upload-artifact@v4
         if: ${{ ! cancelled() }} # Ensures artifacts upload even on failure
         with:

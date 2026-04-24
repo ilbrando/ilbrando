@@ -3,6 +3,22 @@ import { useFormDefinition, getFormManager, useValidationRules } from "@ilbrando
 import { FormNumber, FormText } from "@ilbrando/simple-form-material-ui";
 import { Box, Button, ThemeProvider, createTheme } from "@mui/material";
 
+declare module "@mui/material/styles" {
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface Theme {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface ThemeOptions {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+}
+
 type FormFields = {
   name: string;
   age: number;

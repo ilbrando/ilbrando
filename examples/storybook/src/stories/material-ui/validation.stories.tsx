@@ -4,7 +4,7 @@ import { useFormDefinition, getFormManager, useValidationRules } from "@ilbrando
 import { FormNumber, FormText } from "@ilbrando/simple-form-material-ui";
 import { Box, Button } from "@mui/material";
 import { useState } from "react";
-import { MakeNullable } from "../../../../../packages/utils/lib/utils";
+import { MakeNullable } from "@ilbrando/utils";
 
 type FormFields = {
   name: string;

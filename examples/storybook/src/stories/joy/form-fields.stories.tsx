@@ -15,6 +15,22 @@ import {
 } from "@ilbrando/simple-form-joy";
 import { Box, Button, ThemeProvider, extendTheme } from "@mui/joy";
 
+declare module "@mui/joy/styles" {
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface Theme {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface CssVarsThemeOptions {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+}
+
 type FormFields = {
   textField: string;
   numberField: number;

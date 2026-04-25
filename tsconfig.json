@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig-code-quality.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "lib": ["ESNext"],
-    "target": "ESNext",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "target": "esnext",
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
     "isolatedModules": true,

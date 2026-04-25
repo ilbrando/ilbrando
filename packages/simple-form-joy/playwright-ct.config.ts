@@ -34,7 +34,6 @@ export default defineConfig({
     ctPort: 3100,
 
     ctViteConfig: {
-      plugins: [react()],
       resolve: {
         alias: {
           src: path.resolve(__dirname, "src")

@@ -12,7 +12,7 @@ export const getFormManager = <TFields>(formDefinition: ReturnType<typeof useFor
   const validateForm = () => {
     // this is not using setFormState(prev => ) because then we can't call it multiple times and get
     // the correct value of isValid out.
-    const newState = { ...formState };
+    const newState = fieldNames.reduce((acc, key) => ({ ...acc, [key]: { ...formState[key] } }), { ...formState });
     touchAllFieldsAndUpdateState(newState, fieldNames);
     validateAllFieldsAndUpdateState(newState, fieldNames);
     setFormState(newState);

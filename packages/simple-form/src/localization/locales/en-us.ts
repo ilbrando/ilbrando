@@ -5,8 +5,8 @@ import { Formatter, LocalizationTexts } from "../localization-types";
 
 export const enUS = (format: Formatter): LocalizationTexts => ({
   invalidValue: "Invalid value.",
-  minCount: minValue => `Must contain at least  ${format(minValue)} elements.`,
-  maxCount: maxValue => `Can at most contain  ${format(maxValue)} elements.`,
+  minCount: minValue => `Must contain at least ${format(minValue)} elements.`,
+  maxCount: maxValue => `Can at most contain ${format(maxValue)} elements.`,
   count: (arrayCount: number) => `Must contain exactly ${format(arrayCount)} elements.`,
   required: "Is required.",
   equal: <T>(compareValue: Maybe<T>) => `Must be equal to ${format(compareValue)}.`,

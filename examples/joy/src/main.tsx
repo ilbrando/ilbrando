@@ -1,9 +1,24 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { moduleAugmentation as _ } from "@ilbrando/simple-form-joy";
 import { Box, CssBaseline, extendTheme, ThemeProvider } from "@mui/joy";
 
 import { Persons } from "./persons-example/persons";
+
+declare module "@mui/joy/styles" {
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface Theme {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+
+  // eslint-disable-next-line @ilbrando/prefer-type
+  interface CssVarsThemeOptions {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+}
 
 const theme = extendTheme({
   simpleForm: {

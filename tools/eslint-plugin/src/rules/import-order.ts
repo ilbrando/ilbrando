@@ -66,7 +66,7 @@ const calcOrder = (imported: Import[]) => {
 };
 
 const getNumberOfEmptyLinesBetweenImports = (context: TSESLint.RuleContext<Messages, Options>, curImport: Import, prevImport: Import) => {
-  const linesBetweenImports = context.getSourceCode().lines.slice(prevImport.node.loc.end.line, curImport.node.loc.start.line - 1);
+  const linesBetweenImports = context.sourceCode.lines.slice(prevImport.node.loc.end.line, curImport.node.loc.start.line - 1);
   return linesBetweenImports.filter((line: string) => !line.trim().length).length;
 };
 

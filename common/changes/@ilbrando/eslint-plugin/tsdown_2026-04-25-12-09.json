@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/eslint-plugin",
+      "comment": "Use tsdown",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/eslint-plugin"
+}

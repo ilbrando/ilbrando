@@ -10,8 +10,9 @@ export default defineConfig({
   },
   plugins: [react()],
   resolve: {
-    alias: {
-      "src/": `${path.resolve(__dirname, "src")}/`
-    }
+    alias: [
+      { find: "src/", replacement: `${path.resolve(__dirname, "src")}/` },
+      { find: /^@mui\/icons-material\/(.+)/, replacement: "@mui/icons-material/esm/$1" }
+    ]
   }
 });

@@ -19,7 +19,7 @@ jobs:
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
       - name: Install Playwright Browsers
-        run: npx playwright@1.57.0 install --with-deps
+        run: npx playwright@1.59.1 install --with-deps
       - name: Rush test
         run: node common/scripts/install-run-rush.js test
       - name: Upload Playwright report - simple-form-joy

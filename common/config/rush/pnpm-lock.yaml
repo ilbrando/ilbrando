@@ -326,24 +326,15 @@ importers:
       '@ilbrando/eslint-plugin':
         specifier: workspace:*
         version: link:../../tools/eslint-plugin
-      '@types/deep-equal':
-        specifier: ~1.0.4
-        version: 1.0.4
       eslint:
         specifier: ~10.2.1
         version: 10.2.1
-      npm-run-all:
-        specifier: ~4.1.5
-        version: 4.1.5
       tsdown:
         specifier: ~0.21.10
         version: 0.21.10(typescript@6.0.3)
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
-      vite:
-        specifier: ~8.0.10
-        version: 8.0.10(@types/node@24.12.2)(esbuild@0.25.12)
       vitest:
         specifier: ~4.1.5
         version: 4.1.5(@types/node@24.12.2)(happy-dom@15.11.7)(vite@8.0.10(@types/node@24.12.2))
@@ -1534,9 +1525,6 @@ packages:
 
   '@types/deep-eql@4.0.2':
     resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
-
-  '@types/deep-equal@1.0.4':
-    resolution: {integrity: sha512-tqdiS4otQP4KmY0PR3u6KbZ5EWvhNdUoS/jc93UuK23C220lOZ/9TvjfxdPcKvqwwDVtmtSCrnr0p/2dirAxkA==}
 
   '@types/doctrine@0.0.9':
     resolution: {integrity: sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==}
@@ -4867,8 +4855,6 @@ snapshots:
       assertion-error: 2.0.1
 
   '@types/deep-eql@4.0.2': {}
-
-  '@types/deep-equal@1.0.4': {}
 
   '@types/doctrine@0.0.9': {}
 

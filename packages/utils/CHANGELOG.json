@@ -2,6 +2,28 @@
   "name": "@ilbrando/utils",
   "entries": [
     {
+      "version": "2.1.6",
+      "tag": "@ilbrando/utils_v2.1.6",
+      "date": "Sat, 25 Apr 2026 12:24:11 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "Rename repo"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Use tsdown"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/eslint-plugin\" to `1.0.8`"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.1.5",
       "tag": "@ilbrando/utils_v2.1.5",
       "date": "Mon, 10 Nov 2025 10:32:53 GMT",

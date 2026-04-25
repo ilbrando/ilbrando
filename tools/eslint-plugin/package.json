@@ -1,6 +1,6 @@
 {
   "name": "@ilbrando/eslint-plugin",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "ES lint rules",
   "license": "MIT",
   "author": {

@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/eslint-plugin
 
-This log was last generated on Mon, 10 Nov 2025 10:32:53 GMT and should not be manually modified.
+This log was last generated on Sat, 25 Apr 2026 12:24:11 GMT and should not be manually modified.
+
+## 1.0.8
+Sat, 25 Apr 2026 12:24:11 GMT
+
+### Patches
+
+- Use tsdown
 
 ## 1.0.7
 Mon, 10 Nov 2025 10:32:53 GMT

@@ -2,6 +2,31 @@
   "name": "@ilbrando/simple-form",
   "entries": [
     {
+      "version": "3.2.2",
+      "tag": "@ilbrando/simple-form_v3.2.2",
+      "date": "Sat, 25 Apr 2026 12:24:11 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "Rename repo"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Use tsdown"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/utils\" to `2.1.6`"
+          },
+          {
+            "comment": "Updating dependency \"@ilbrando/eslint-plugin\" to `1.0.8`"
+          }
+        ]
+      }
+    },
+    {
       "version": "3.2.1",
       "tag": "@ilbrando/simple-form_v3.2.1",
       "date": "Mon, 20 Apr 2026 05:13:30 GMT",

@@ -18,6 +18,8 @@ This is a **Rush + PNPM** monorepo publishing a family of React form library pac
 
 ## Common Commands
 
+Always use rush commands and never npx og pnpm directly.
+
 Run these from the repo root:
 
 ```bash
@@ -39,13 +41,12 @@ To run commands directly inside a package (faster for local dev):
 ```bash
 # Vitest (simple-form, utils, eslint-plugin)
 cd packages/simple-form
-npx vitest run                        # all tests
-npx vitest run src/path/to/file.test.ts  # single test file
+rush-pnpm run test                        # all tests
 
 # Playwright component tests (simple-form-joy)
 cd packages/simple-form-joy
-npx playwright test -c playwright-ct.config.ts
-npx playwright test --ui              # interactive UI mode
+rush-pnpm run test
+rush-pnpm run test-ui              # interactive UI mode
 ```
 
 ## Architecture
@@ -98,3 +99,16 @@ rush change   # prompts for a description and bump type (patch/minor/major)
 ```
 
 CI (`ci.yml`) verifies change files exist on PRs. Publishing to npm is done manually via the `release.yml` workflow.
+
+
+## Code style
+
+- Use Typescript.
+- Never use `any` or `as` - everything should be 100% type safe.
+- Use functional programming patterns.
+- Use snake case for files.
+- Use camel case for variables and functions
+  - Exception: React components use Pascal case.
+- Use Pascal case for types.
+- Always use types and never interfaces.
+  

@@ -18,16 +18,13 @@
   "homepage": "https://github.com/ilbrando/ilbrando",
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "run-p vite type-check",
-    "vite": "vite",
-    "type-check": "tsc --noEmit --watch",
     "build": "tsdown",
     "test": "vitest run",
     "eslint": "eslint --max-warnings=0"
@@ -35,15 +32,12 @@
   "devDependencies": {
     "@types/react": "~19.2.14",
     "@ilbrando/eslint-plugin": "workspace:*",
-    "@vitejs/plugin-react": "~6.0.1",
     "@testing-library/react": "~16.1.0",
     "eslint": "~10.2.1",
     "happy-dom": "~15.11.7",
-    "npm-run-all": "~4.1.5",
     "react": "~19.2.5",
-    "react-dom": "^19.2.1",
+    "react-dom": "~19.2.5",
     "typescript": "~6.0.3",
-    "vite": "~8.0.10",
     "vitest": "~4.1.5",
     "tsdown": "~0.21.10"
   },

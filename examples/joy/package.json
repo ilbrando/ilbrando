@@ -14,7 +14,7 @@
     "@ilbrando/simple-form": "workspace:*",
     "@ilbrando/simple-form-joy": "workspace:*",
     "react": "~19.2.5",
-    "react-dom": "^19.2.1",
+    "react-dom": "~19.2.5",
     "@mui/joy": "~5.0.0-beta.52",
     "@mui/icons-material": "^5",
     "@emotion/react": "~11.14.0",

@@ -1,0 +1,17 @@
+{
+  "name": "@ilbrando/i18n",
+  "entries": [
+    {
+      "version": "2.0.0",
+      "tag": "@ilbrando/i18n_v2.0.0",
+      "date": "Sun, 26 Apr 2026 21:06:43 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "i18n tool"
+          }
+        ]
+      }
+    }
+  ]
+}

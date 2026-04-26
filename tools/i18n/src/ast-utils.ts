@@ -1,5 +1,5 @@
-import { hasValue } from "@ilbrando/utils";
 import { ObjectLiteralExpression, SourceFile, SyntaxKind } from "ts-morph";
+import { hasValue } from "@ilbrando/utils";
 
 const TRANSLATIONS_VAR = "translations";
 const LOCALIZATION_TYPE = "Localization";

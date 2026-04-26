@@ -23,13 +23,17 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsdown"
+    "build": "tsdown",
+    "test": "vitest run",
+    "eslint": "eslint --max-warnings=0"
   },
   "dependencies": {
     "@ilbrando/utils": "workspace:*",
     "ts-morph": "^28.0.0"
   },
   "devDependencies": {
+    "@ilbrando/eslint-plugin": "workspace:*",
+    "eslint": "~10.2.1",
     "@types/node": "^24",
     "typescript": "~6.0.3",
     "vitest": "~4.1.5",

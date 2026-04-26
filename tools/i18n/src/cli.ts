@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 import { parseArgs } from "node:util";
 import { hasValue } from "@ilbrando/utils";
+
+import { importTexts } from "./import-texts.js";
 import { report } from "./report.js";
-import { importTexts } from "./import_texts.js";
 
 const { values } = parseArgs({
   options: {
     language: { type: "string", short: "l" },
     all: { type: "boolean", short: "a", default: false },
     json: { type: "boolean", short: "j", default: false },
-    import: { type: "string", short: "i" },
+    import: { type: "string", short: "i" }
   },
-  strict: true,
+  strict: true
 });
 
 if (!hasValue(values.language)) {

@@ -1,13 +1,14 @@
-import { access, readFile } from "node:fs/promises";
 import path from "node:path";
-import { hasValue } from "@ilbrando/utils";
 import { Project, SyntaxKind } from "ts-morph";
-import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast_utils.js";
+import { access, readFile } from "node:fs/promises";
+import { hasValue } from "@ilbrando/utils";
+
+import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast-utils.js";
 import type { JsonFileTranslations } from "./types.js";
 
-type ResolvedKey = { key: string; translation: string };
+export type ResolvedKey = { key: string; translation: string };
 
-const resolveKeys = (keys: JsonFileTranslations["keys"], language: string): ResolvedKey[] =>
+export const resolveKeys = (keys: JsonFileTranslations["keys"], language: string): ResolvedKey[] =>
   keys
     .map(k => {
       const translation = k[language];
@@ -49,11 +50,7 @@ export const importTexts = async (language: string, rootPath: string, importFile
       const currentKeys = getKeyValues(langObj);
       for (const { key, translation } of resolvedKeys) {
         if (currentKeys.some(k => k.key === key)) {
-          langObj
-            .getPropertyOrThrow(key)
-            .asKindOrThrow(SyntaxKind.PropertyAssignment)
-            .getInitializerIfKindOrThrow(SyntaxKind.StringLiteral)
-            .setLiteralValue(translation);
+          langObj.getPropertyOrThrow(key).asKindOrThrow(SyntaxKind.PropertyAssignment).getInitializerIfKindOrThrow(SyntaxKind.StringLiteral).setLiteralValue(translation);
         } else {
           langObj.addPropertyAssignment({ name: key, initializer: `"${translation}"` });
         }
@@ -61,7 +58,7 @@ export const importTexts = async (language: string, rootPath: string, importFile
     } else {
       translationsObj.addPropertyAssignment({
         name: language,
-        initializer: `{\n${resolvedKeys.map(({ key, translation }) => `    ${key}: "${translation}"`).join(",\n")}\n  }`,
+        initializer: `{\n${resolvedKeys.map(({ key, translation }) => `    ${key}: "${translation}"`).join(",\n")}\n  }`
       });
     }
 

@@ -1,8 +1,9 @@
-import { glob } from "node:fs/promises";
 import path from "node:path";
-import { assertNever, hasValue } from "@ilbrando/utils";
 import { Project } from "ts-morph";
-import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast_utils.js";
+import { glob } from "node:fs/promises";
+import { assertNever, hasValue } from "@ilbrando/utils";
+
+import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast-utils.js";
 import type { FileTranslations, JsonFileTranslations, KeyEntry } from "./types.js";
 
 const toRelativePosix = (rootPath: string, filePath: string) => path.relative(rootPath, filePath).replaceAll(path.sep, "/");
@@ -24,7 +25,7 @@ const formatOutput = (results: FileTranslations[], language: string, rootPath: s
 const toJson = (results: FileTranslations[], language: string, rootPath: string): JsonFileTranslations[] =>
   results.map(r => ({
     filePath: toRelativePosix(rootPath, r.filePath),
-    keys: r.keys.map(k => ({ key: k.key, da: k.da, [language]: k.translation })),
+    keys: r.keys.map(k => ({ key: k.key, da: k.da, [language]: k.translation }))
   }));
 
 export const report = async (language: string, rootPath: string, showAll: boolean, outputFormat: "json" | "text") => {
@@ -52,15 +53,13 @@ export const report = async (language: string, rootPath: string, showAll: boolea
     const keys: KeyEntry[] = daKeys.map(da => ({
       key: da.key,
       da: da.value,
-      translation: langKeys.find(l => l.key === da.key)?.value ?? null,
+      translation: langKeys.find(l => l.key === da.key)?.value ?? null
     }));
 
     results.push({ filePath, keys });
   }
 
-  const displayed = showAll
-    ? results
-    : results.map(r => ({ ...r, keys: r.keys.filter(k => !hasValue(k.translation)) })).filter(r => r.keys.length > 0);
+  const displayed = showAll ? results : results.map(r => ({ ...r, keys: r.keys.filter(k => !hasValue(k.translation)) })).filter(r => r.keys.length > 0);
 
   switch (outputFormat) {
     case "json":

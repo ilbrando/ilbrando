@@ -6,6 +6,7 @@
     "lib": ["esnext"],
     "moduleResolution": "NodeNext",
     "skipLibCheck": true,
+    "types": ["node"],
     "paths": { "src/*": ["./src/*"] }
   },
   "include": ["src"]

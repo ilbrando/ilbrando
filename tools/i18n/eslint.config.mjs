@@ -6,6 +6,17 @@ export default [
     files: ["src/**/*.ts", "src/**/*.tsx"]
   },
   {
+    files: ["src/**/*.ts", "src/**/*.tsx"],
+    languageOptions: {
+      globals: {
+        process: "readonly"
+      }
+    },
+    rules: {
+      "no-console": "off"
+    }
+  },
+  {
     ignores: ["**/*.js"]
   }
 ];

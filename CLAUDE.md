@@ -106,9 +106,10 @@ CI (`ci.yml`) verifies change files exist on PRs. Publishing to npm is done manu
 - Use Typescript.
 - Never use `any` or `as` - everything should be 100% type safe.
 - Use functional programming patterns.
-- Use snake case for files.
+- Use kebab case for files.
 - Use camel case for variables and functions
   - Exception: React components use Pascal case.
 - Use Pascal case for types.
 - Always use types and never interfaces.
-  
+- For null/undefined checks always use `hasValue` from `@ilbrando/utils` instead of JavaScript truthiness or explicit `=== null` / `=== undefined` checks.
+- Exhaustive switches: always add a `default: assertNever(value)` case (using `assertNever` from `@ilbrando/utils`) so TypeScript catches unhandled variants when the union grows.

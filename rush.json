@@ -443,6 +443,11 @@
       "packageName": "@ilbrando/eslint-plugin",
       "projectFolder": "tools/eslint-plugin",
       "shouldPublish": true
+    },
+    {
+      "packageName": "@ilbrando/i18n",
+      "projectFolder": "tools/i18n",
+      "shouldPublish": true
     }
   ]
 }

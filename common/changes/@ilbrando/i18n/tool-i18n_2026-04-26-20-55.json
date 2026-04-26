@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/i18n",
+      "comment": "i18n tool",
+      "type": "major"
+    }
+  ],
+  "packageName": "@ilbrando/i18n"
+}

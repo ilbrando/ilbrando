@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig-code-quality.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": ["esnext"],
+    "moduleResolution": "NodeNext",
+    "skipLibCheck": true,
+    "types": ["node"],
+    "paths": { "src/*": ["./src/*"] }
+  },
+  "include": ["src"]
+}

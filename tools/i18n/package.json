@@ -13,9 +13,8 @@
   },
   "homepage": "https://github.com/ilbrando/ilbrando",
   "type": "module",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
+  "bin": {
+    "i18n": "./dist/cli.mjs"
   },
   "files": [
     "dist"

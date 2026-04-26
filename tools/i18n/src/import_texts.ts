@@ -1,5 +1,6 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
+import { hasValue } from "@ilbrando/utils";
 import { Project, SyntaxKind } from "ts-morph";
 import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast_utils.js";
 import type { JsonFileTranslations } from "./types.js";
@@ -10,10 +11,10 @@ const resolveKeys = (keys: JsonFileTranslations["keys"], language: string): Reso
   keys
     .map(k => {
       const translation = k[language];
-      if (translation === null || translation === undefined) return null;
+      if (!hasValue(translation)) return null;
       return { key: k.key, translation };
     })
-    .filter((k): k is ResolvedKey => k !== null);
+    .filter((k): k is ResolvedKey => hasValue(k));
 
 export const importTexts = async (language: string, rootPath: string, importFile: string) => {
   const importFilePath = path.resolve(rootPath, importFile);
@@ -40,11 +41,11 @@ export const importTexts = async (language: string, rootPath: string, importFile
 
     const sourceFile = project.addSourceFileAtPath(filePath);
     const translationsObj = findTranslationsObject(sourceFile);
-    if (!translationsObj) continue;
+    if (!hasValue(translationsObj)) continue;
 
     const langObj = getLanguageObject(translationsObj, language);
 
-    if (langObj) {
+    if (hasValue(langObj)) {
       const currentKeys = getKeyValues(langObj);
       for (const { key, translation } of resolvedKeys) {
         if (currentKeys.some(k => k.key === key)) {

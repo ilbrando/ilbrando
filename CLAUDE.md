@@ -111,4 +111,5 @@ CI (`ci.yml`) verifies change files exist on PRs. Publishing to npm is done manu
   - Exception: React components use Pascal case.
 - Use Pascal case for types.
 - Always use types and never interfaces.
-  
+- For null/undefined checks always use `hasValue` from `@ilbrando/utils` instead of JavaScript truthiness or explicit `=== null` / `=== undefined` checks.
+- Exhaustive switches: always add a `default: assertNever(value)` case (using `assertNever` from `@ilbrando/utils`) so TypeScript catches unhandled variants when the union grows.

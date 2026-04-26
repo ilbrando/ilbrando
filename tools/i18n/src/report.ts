@@ -1,5 +1,6 @@
 import { glob } from "node:fs/promises";
 import path from "node:path";
+import { assertNever, hasValue } from "@ilbrando/utils";
 import { Project } from "ts-morph";
 import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast_utils.js";
 import type { FileTranslations, JsonFileTranslations, KeyEntry } from "./types.js";
@@ -13,7 +14,7 @@ const formatOutput = (results: FileTranslations[], language: string, rootPath: s
     for (const k of r.keys) {
       console.log(`  key${" ".repeat(pad)} : ${k.key}`);
       console.log(`     da${" ".repeat(Math.max(0, pad - "da".length))} : ${k.da}`);
-      if (showAll || k.translation !== null) {
+      if (showAll || hasValue(k.translation)) {
         console.log(`     ${language}${" ".repeat(Math.max(0, pad - language.length))} : ${k.translation ?? ""}`);
       }
     }
@@ -26,7 +27,7 @@ const toJson = (results: FileTranslations[], language: string, rootPath: string)
     keys: r.keys.map(k => ({ key: k.key, da: k.da, [language]: k.translation })),
   }));
 
-export const report = async (language: string, rootPath: string, showAll: boolean, jsonFormat: boolean) => {
+export const report = async (language: string, rootPath: string, showAll: boolean, outputFormat: "json" | "text") => {
   const sourcePath = path.join(rootPath, "src");
   console.log(`Examining language \x1b[36m${language}\x1b[0m in ${sourcePath}.`);
 
@@ -39,14 +40,14 @@ export const report = async (language: string, rootPath: string, showAll: boolea
   for (const filePath of tsFiles) {
     const sourceFile = project.addSourceFileAtPath(filePath);
     const translationsObj = findTranslationsObject(sourceFile);
-    if (!translationsObj) continue;
+    if (!hasValue(translationsObj)) continue;
 
     const daObj = getLanguageObject(translationsObj, "da");
-    if (!daObj) throw new Error(`Expected 'da' language property in ${filePath}`);
+    if (!hasValue(daObj)) throw new Error(`Expected 'da' language property in ${filePath}`);
     const daKeys = getKeyValues(daObj);
 
     const langObj = getLanguageObject(translationsObj, language);
-    const langKeys = langObj ? getKeyValues(langObj) : [];
+    const langKeys = hasValue(langObj) ? getKeyValues(langObj) : [];
 
     const keys: KeyEntry[] = daKeys.map(da => ({
       key: da.key,
@@ -59,11 +60,16 @@ export const report = async (language: string, rootPath: string, showAll: boolea
 
   const displayed = showAll
     ? results
-    : results.map(r => ({ ...r, keys: r.keys.filter(k => k.translation === null) })).filter(r => r.keys.length > 0);
+    : results.map(r => ({ ...r, keys: r.keys.filter(k => !hasValue(k.translation)) })).filter(r => r.keys.length > 0);
 
-  if (jsonFormat) {
-    console.log(JSON.stringify(toJson(displayed, language, rootPath), undefined, 2));
-  } else {
-    formatOutput(displayed, language, rootPath, showAll);
+  switch (outputFormat) {
+    case "json":
+      console.log(JSON.stringify(toJson(displayed, language, rootPath), undefined, 2));
+      break;
+    case "text":
+      formatOutput(displayed, language, rootPath, showAll);
+      break;
+    default:
+      assertNever(outputFormat);
   }
 };

@@ -26,6 +26,7 @@
     "build": "tsdown"
   },
   "dependencies": {
+    "@ilbrando/utils": "workspace:*",
     "ts-morph": "^28.0.0"
   },
   "devDependencies": {

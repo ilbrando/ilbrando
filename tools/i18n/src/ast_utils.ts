@@ -1,3 +1,4 @@
+import { hasValue } from "@ilbrando/utils";
 import { ObjectLiteralExpression, SourceFile, SyntaxKind } from "ts-morph";
 
 const TRANSLATIONS_VAR = "translations";
@@ -5,7 +6,7 @@ const LOCALIZATION_TYPE = "Localization";
 
 export const findTranslationsObject = (sourceFile: SourceFile): ObjectLiteralExpression | undefined => {
   const decl = sourceFile.getVariableDeclaration(TRANSLATIONS_VAR);
-  if (!decl) return undefined;
+  if (!hasValue(decl)) return undefined;
   if (decl.getTypeNode()?.getText() !== LOCALIZATION_TYPE) return undefined;
   return decl.getInitializerIfKind(SyntaxKind.ObjectLiteralExpression);
 };

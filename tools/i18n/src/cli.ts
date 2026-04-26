@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { parseArgs } from "node:util";
+import { hasValue } from "@ilbrando/utils";
 import { report } from "./report.js";
 import { importTexts } from "./import_texts.js";
 
@@ -13,7 +14,7 @@ const { values } = parseArgs({
   strict: true,
 });
 
-if (!values.language) {
+if (!hasValue(values.language)) {
   console.error("\x1b[31mError: -l <language> is required\x1b[0m");
   process.exit(1);
 }
@@ -21,8 +22,8 @@ if (!values.language) {
 const language = values.language;
 const rootPath = process.cwd();
 
-if (values.import) {
+if (hasValue(values.import)) {
   await importTexts(language, rootPath, values.import);
 } else {
-  await report(language, rootPath, values.all ?? false, values.json ?? false);
+  await report(language, rootPath, values.all ?? false, values.json ? "json" : "text");
 }

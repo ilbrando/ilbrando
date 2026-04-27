@@ -430,6 +430,11 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@ilbrando/example-i18n",
+      "projectFolder": "examples/i18n",
+      "shouldPublish": false
+    },
+    {
       "packageName": "@ilbrando/example-joy",
       "projectFolder": "examples/joy",
       "shouldPublish": false

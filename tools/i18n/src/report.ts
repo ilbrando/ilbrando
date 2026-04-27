@@ -30,10 +30,11 @@ const toJson = (results: FileTranslations[], language: string, rootPath: string)
 
 export const report = async (language: string, rootPath: string, showAll: boolean, outputFormat: "json" | "text") => {
   const sourcePath = path.join(rootPath, "src");
-  console.log(`Examining language \x1b[36m${language}\x1b[0m in ${sourcePath}.`);
 
   const allFiles = await Array.fromAsync(glob("src/**/*.{ts,tsx}", { cwd: rootPath }));
   const tsFiles = allFiles.filter(f => !f.endsWith(".d.ts")).map(f => path.join(rootPath, f));
+
+  console.log(`Examining language \x1b[36m${language}\x1b[0m in ${sourcePath}. Files: ${tsFiles.length}`);
 
   const project = new Project({ skipAddingFilesFromTsConfig: true });
   const results: FileTranslations[] = [];

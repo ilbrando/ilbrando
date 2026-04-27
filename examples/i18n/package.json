@@ -2,6 +2,7 @@
   "name": "@ilbrando/example-i18n",
   "version": "1.0.0",
   "scripts": {
+    "build": "echo 'Nothing to build in this project'",
     "i18n-en": "i18n -l en",
     "i18n-en-all": "i18n -l en -a",
     "i18n-en-json": "i18n -l en -j",

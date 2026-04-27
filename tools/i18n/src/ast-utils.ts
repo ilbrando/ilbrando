@@ -7,7 +7,7 @@ const LOCALIZATION_TYPE = "Localization";
 export const findTranslationsObject = (sourceFile: SourceFile): ObjectLiteralExpression | undefined => {
   const decl = sourceFile.getVariableDeclaration(TRANSLATIONS_VAR);
   if (!hasValue(decl)) return undefined;
-  if (decl.getTypeNode()?.getText() !== LOCALIZATION_TYPE) return undefined;
+  if (!decl.getTypeNode()?.getText().startsWith(LOCALIZATION_TYPE)) return undefined;
   return decl.getInitializerIfKind(SyntaxKind.ObjectLiteralExpression);
 };
 

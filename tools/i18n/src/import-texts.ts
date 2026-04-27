@@ -1,5 +1,5 @@
 import path from "node:path";
-import { Project, SyntaxKind } from "ts-morph";
+import { IndentationText, Project, SyntaxKind } from "ts-morph";
 import { access, readFile } from "node:fs/promises";
 import { hasValue } from "@ilbrando/utils";
 
@@ -24,7 +24,7 @@ export const importTexts = async (language: string, rootPath: string, importFile
   const content = await readFile(importFilePath, "utf-8");
   const importData: JsonFileTranslations[] = JSON.parse(content);
 
-  const project = new Project({ skipAddingFilesFromTsConfig: true });
+  const project = new Project({ skipAddingFilesFromTsConfig: true, manipulationSettings: { indentationText: IndentationText.TwoSpaces } });
   let updatedFiles = 0;
 
   for (const file of importData) {
@@ -58,7 +58,7 @@ export const importTexts = async (language: string, rootPath: string, importFile
     } else {
       translationsObj.addPropertyAssignment({
         name: language,
-        initializer: `{\n${resolvedKeys.map(({ key, translation }) => `    ${key}: "${translation}"`).join(",\n")}\n  }`
+        initializer: `{\n${resolvedKeys.map(({ key, translation }) => `${key}: "${translation}"`).join(",\n")}\n  }`
       });
     }
 

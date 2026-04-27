@@ -2,6 +2,18 @@
   "name": "@ilbrando/i18n",
   "entries": [
     {
+      "version": "2.0.2",
+      "tag": "@ilbrando/i18n_v2.0.2",
+      "date": "Mon, 27 Apr 2026 08:55:21 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix i18n tool"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.1",
       "tag": "@ilbrando/i18n_v2.0.1",
       "date": "Sun, 26 Apr 2026 21:22:14 GMT",

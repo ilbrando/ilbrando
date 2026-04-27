@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/i18n
 
-This log was last generated on Mon, 27 Apr 2026 08:55:21 GMT and should not be manually modified.
+This log was last generated on Mon, 27 Apr 2026 09:14:20 GMT and should not be manually modified.
+
+## 2.0.3
+Mon, 27 Apr 2026 09:14:20 GMT
+
+### Patches
+
+- Support template literal
 
 ## 2.0.2
 Mon, 27 Apr 2026 08:55:21 GMT

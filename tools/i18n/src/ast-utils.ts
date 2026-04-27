@@ -18,7 +18,11 @@ export const getKeyValues = (obj: ObjectLiteralExpression): { key: string; value
   obj
     .getProperties()
     .filter(p => p.isKind(SyntaxKind.PropertyAssignment))
-    .map(p => ({
-      key: p.getName(),
-      value: p.getInitializerIfKindOrThrow(SyntaxKind.StringLiteral).getLiteralValue()
-    }));
+    .map(p => {
+      const init = p.getInitializer();
+      const stringLiteral = init?.asKind(SyntaxKind.StringLiteral);
+      const templateLiteral = init?.asKind(SyntaxKind.NoSubstitutionTemplateLiteral);
+      const literal = stringLiteral ?? templateLiteral;
+      if (!hasValue(literal)) throw new Error(`Property "${p.getName()}" must be a string literal or template literal`);
+      return { key: p.getName(), value: literal.getLiteralValue() };
+    });

@@ -10,6 +10,12 @@ importers:
 
   .: {}
 
+  ../../examples/i18n:
+    devDependencies:
+      '@ilbrando/i18n':
+        specifier: workspace:*
+        version: link:../../tools/i18n
+
   ../../examples/joy:
     dependencies:
       '@emotion/react':

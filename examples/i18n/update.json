@@ -1,0 +1,12 @@
+[
+  {
+    "filePath": "src/example.ts",
+    "keys": [
+      {
+        "key": "key2",
+        "da": "DA:key2",
+        "en": "EN:key2 - imported"
+      }
+    ]
+  }
+]

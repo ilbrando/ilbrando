@@ -6,7 +6,8 @@
     "i18n-en": "i18n -l en",
     "i18n-en-all": "i18n -l en -a",
     "i18n-en-json": "i18n -l en -j",
-    "i18n-en-all-json": "i18n -l en -a -j"
+    "i18n-en-all-json": "i18n -l en -a -j",
+    "i18n-en-import": "i18n -l en -i modified.json"
   },
   "devDependencies": {
     "@ilbrando/i18n": "workspace:*"

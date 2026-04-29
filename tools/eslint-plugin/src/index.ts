@@ -1,83 +1,51 @@
 import { rules } from "./rules/index.js";
-import { parse, parseForESLint } from "@typescript-eslint/parser";
 import type { FlatConfig } from "@typescript-eslint/utils/ts-eslint";
-import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintJs from "@eslint/js";
-import eslintPrettierConfig from "eslint-config-prettier";
+import tseslint from "typescript-eslint";
+import importPlugin from "eslint-plugin-import";
+import eslintConfigPrettier from "eslint-config-prettier";
+import reactPlugin from "eslint-plugin-react";
 import pkg from "../package.json" with { type: "json" };
+import { defineConfig } from "eslint/config";
 
-type ConfigKeys = "recommended";
-
-const { name, version } = pkg as {
-  name: string;
-  version: string;
-};
-
-const configs: Record<ConfigKeys, FlatConfig.Config> = {
-  recommended: {
-    languageOptions: {
-      parser: { parse, parseForESLint },
-      globals: {
-        console: "readonly"
-      }
-    },
-    plugins: {
-      "@typescript-eslint": typescriptEslintPlugin,
-      "@ilbrando": undefined as unknown as FlatConfig.Plugin
-    },
+const base = defineConfig([
+  eslintJs.configs.recommended,
+  tseslint.configs.strict,
+  eslintConfigPrettier,
+  importPlugin.flatConfigs.recommended,
+  {
     rules: {
-      ...eslintJs.configs.recommended.rules,
-      ...typescriptEslintPlugin.configs.recommended.rules,
-      ...eslintPrettierConfig.rules,
-
-      "default-case-last": "warn",
-      "default-case": "off",
-      "no-case-declarations": "off",
+      "array-callback-return": "warn",
       "no-console": "warn",
-      "no-else-return": "warn",
+      "no-duplicate-imports": "warn",
+      "no-promise-executor-return": "warn",
+      "no-self-compare": "warn",
       "no-template-curly-in-string": "warn",
+      "no-use-before-define": "warn",
       "sort-imports": [
         "warn",
         {
-          ignoreDeclarationSort: true,
           ignoreCase: true
         }
       ],
 
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-explicit-any": "error",
-
-      "no-duplicate-imports": "warn",
-
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        process.env.NODE_ENV === "production" ? "error" : "warn",
-        {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_"
-        }
-      ],
-
-      "@ilbrando/export-order": process.env.NODE_ENV === "production" ? "error" : "warn",
-      "@ilbrando/import-order": process.env.NODE_ENV === "production" ? "error" : "warn",
-      "@ilbrando/import-path": ["error", { alias: "src", rootPath: "src" }],
-      "@ilbrando/jsx-string-attribute": "error",
-      "@ilbrando/prefer-type": "error",
-      "@ilbrando/no-partial-spread": "error"
+      "@typescript-eslint/no-explicit-any": "error"
     }
   }
-};
+]);
+
+const react = defineConfig([...base, reactPlugin.configs.flat.recommended]);
+
+const configs = { base, react };
 
 const plugin: FlatConfig.Plugin & { configs: typeof configs } = {
   meta: {
-    name,
-    version
+    name: pkg.name,
+    version: pkg.version
   },
   rules,
   configs
 };
-
-configs.recommended.plugins!["@ilbrando"] = plugin;
 
 export default plugin;

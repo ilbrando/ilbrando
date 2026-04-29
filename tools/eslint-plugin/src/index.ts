@@ -5,6 +5,7 @@ import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
 import pkg from "../package.json" with { type: "json" };
 import { defineConfig } from "eslint/config";
 
@@ -40,8 +41,24 @@ const react = defineConfig([
   ...base,
   reactHooksPlugin.configs["recommended-latest"],
   {
+    plugins: {
+      perfectionist: perfectionistPlugin
+    },
     rules: {
-      "react-hooks/exhaustive-deps": "error"
+      "react-hooks/exhaustive-deps": "error",
+      "perfectionist/sort-jsx-props": [
+        "error",
+        {
+          type: "alphabetical",
+          order: "asc",
+          ignoreCase: true,
+          groups: ["reserved", "unknown", "multiline", "shorthand", "callback"],
+          customGroups: {
+            reserved: "^(key|ref)$",
+            callback: "^on[A-Z]"
+          }
+        }
+      ]
     }
   }
 ]);

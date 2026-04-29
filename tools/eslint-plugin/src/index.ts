@@ -1,10 +1,10 @@
-import { rules } from "./rules/index.js";
 import type { FlatConfig } from "@typescript-eslint/utils/ts-eslint";
 import eslintJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import stylisticPlugin from "@stylistic/eslint-plugin";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import pkg from "../package.json" with { type: "json" };
 import { defineConfig } from "eslint/config";
@@ -43,10 +43,12 @@ const react = defineConfig([
   reactHooksPlugin.configs["recommended-latest"],
   {
     plugins: {
-      perfectionist: perfectionistPlugin
+      perfectionist: perfectionistPlugin,
+      "@stylistic": stylisticPlugin
     },
     rules: {
       "react-hooks/exhaustive-deps": "error",
+      "@stylistic/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
       "perfectionist/sort-jsx-props": [
         "error",
         {
@@ -78,7 +80,6 @@ const plugin: FlatConfig.Plugin & { configs: typeof configs } = {
     name: pkg.name,
     version: pkg.version
   },
-  rules,
   configs
 };
 

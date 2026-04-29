@@ -1,5 +1,5 @@
-import { SetStateAction, useEffect, useMemo, useState } from "react";
 import { singleOrUndefined } from "@ilbrando/utils";
+import { SetStateAction, useEffect, useMemo, useState } from "react";
 
 import { FormState, UseFormOptions, UseFormOptionsArray } from "./form-types";
 
@@ -11,7 +11,7 @@ const useFieldsNames = <TFields>(options: UseFormOptions<TFields>) => {
       result.push(key);
     }
     return result;
-  }, []);
+  }, [options.fields]);
 
   return fieldNames;
 };
@@ -36,6 +36,7 @@ export const useFormDefinition = <TFields>(options: UseFormOptions<TFields>) => 
 
   const [initialState, setInitialState] = useState(createInitialState(options, fieldNames));
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setInitialState(createInitialState(options, fieldNames)), options.reCreateDependencies ?? []);
 
   const [formState, setFormState] = useState<FormState<TFields>>(initialState);
@@ -57,6 +58,7 @@ export const useFormDefinitionArray = <TFields>(options: UseFormOptionsArray<TFi
 
   const [initialStates, setInitialStates] = useState(createInitialStates());
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setInitialStates(createInitialStates()), options.reCreateDependencies ?? []);
 
   const [formStates, setFormStates] = useState<FormState<TFields>[]>(initialStates);

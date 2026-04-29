@@ -1,5 +1,4 @@
 import { hasValue, Maybe } from "@ilbrando/utils";
-
 import { useLocalization } from "src/localization";
 
 import { Validator } from "../validation-types";

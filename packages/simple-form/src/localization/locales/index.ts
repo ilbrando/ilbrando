@@ -1,5 +1,4 @@
 import { DefaultLocale, Formatter, LocalizationTexts, OtherLocales } from "../localization-types";
-
 import { daDK } from "./da-dk";
 import { deDE } from "./de-de";
 import { enUS } from "./en-us";

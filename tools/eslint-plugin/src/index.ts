@@ -2,40 +2,49 @@ import { rules } from "./rules/index.js";
 import type { FlatConfig } from "@typescript-eslint/utils/ts-eslint";
 import eslintJs from "@eslint/js";
 import tseslint from "typescript-eslint";
-import importPlugin from "eslint-plugin-import";
 import eslintConfigPrettier from "eslint-config-prettier";
-import reactPlugin from "eslint-plugin-react";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 import pkg from "../package.json" with { type: "json" };
 import { defineConfig } from "eslint/config";
 
 const base = defineConfig([
+  { ignores: ["**/dist/**"] },
   eslintJs.configs.recommended,
   tseslint.configs.strict,
   eslintConfigPrettier,
-  importPlugin.flatConfigs.recommended,
   {
+    plugins: {
+      "simple-import-sort": simpleImportSort
+    },
     rules: {
-      "array-callback-return": "warn",
-      "no-console": "warn",
-      "no-duplicate-imports": "warn",
-      "no-promise-executor-return": "warn",
-      "no-self-compare": "warn",
-      "no-template-curly-in-string": "warn",
-      "no-use-before-define": "warn",
-      "sort-imports": [
-        "warn",
-        {
-          ignoreCase: true
-        }
-      ],
+      "array-callback-return": "error",
+      "no-console": "error",
+      "no-duplicate-imports": "error",
+      "no-promise-executor-return": "error",
+      "no-self-compare": "error",
+      "no-template-curly-in-string": "error",
+      "no-use-before-define": "error",
 
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-explicit-any": "error"
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],
+
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error"
     }
   }
 ]);
 
-const react = defineConfig([...base, reactPlugin.configs.flat.recommended]);
+const react = defineConfig([
+  ...base,
+  reactHooksPlugin.configs["recommended-latest"],
+  {
+    rules: {
+      "react-hooks/exhaustive-deps": "error"
+    }
+  }
+]);
 
 const configs = { base, react };
 

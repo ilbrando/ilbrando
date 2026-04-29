@@ -1,8 +1,8 @@
 import { DeepPartial, OmitSafe } from "@ilbrando/utils";
 
-import { FormRangeSlider, FormRangeSliderProps } from "../form-range-slider";
 import { TestWrapper } from "../../../test-components/test-wrapper";
 import { TestFormFields, useTestForm, UseTestFormOptions } from "../../../test-components/use-test-form";
+import { FormRangeSlider, FormRangeSliderProps } from "../form-range-slider";
 
 type FormRangeSliderTestComponentProps = Partial<Pick<ReturnType<typeof useTestForm>["fm"], "onChange">> & {
   formOptions?: DeepPartial<UseTestFormOptions>;

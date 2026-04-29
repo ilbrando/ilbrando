@@ -1,8 +1,8 @@
 import ilbrandoPlugin from "@ilbrando/eslint-plugin";
 
 export default [
+  ...ilbrandoPlugin.configs.react,
   {
-    ...ilbrandoPlugin.configs.recommended,
     files: ["src/**/*.ts", "src/**/*.tsx"]
   },
   {

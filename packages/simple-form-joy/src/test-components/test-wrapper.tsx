@@ -1,7 +1,21 @@
-import { ReactNode } from "react";
 import { Box, CssBaseline, extendTheme, ThemeProvider } from "@mui/joy";
+import { ReactNode } from "react";
 
-import { moduleAugmentation as _ } from "../simple-form-module-argumentation";
+declare module "@mui/joy/styles" {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  interface Theme {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  interface CssVarsThemeOptions {
+    simpleForm?: {
+      reserveSpaceForValidationMessage?: boolean;
+    };
+  }
+}
 
 const theme = extendTheme({
   simpleForm: {

@@ -1,8 +1,8 @@
 import { DeepPartial, OmitSafe } from "@ilbrando/utils";
 
-import { FormCheckbox, FormCheckboxProps } from "../form-checkbox";
 import { TestWrapper } from "../../../test-components/test-wrapper";
 import { TestFormFields, useTestForm, UseTestFormOptions } from "../../../test-components/use-test-form";
+import { FormCheckbox, FormCheckboxProps } from "../form-checkbox";
 
 type FormCheckboxTestComponentProps = Partial<Pick<ReturnType<typeof useTestForm>["fm"], "onChange">> & {
   formOptions?: DeepPartial<UseTestFormOptions>;

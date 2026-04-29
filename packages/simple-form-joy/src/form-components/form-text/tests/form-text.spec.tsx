@@ -1,5 +1,4 @@
 import { expect, test } from "@playwright/experimental-ct-react";
-
 import { alwaysErrorValidatorMessage } from "src/test-components/use-test-form";
 
 import { FormTextTestComponent } from "./form-text-test-component";
@@ -36,12 +35,12 @@ test("performs text transform lower case", async ({ mount }) => {
   // Act
   const component = await mount(
     <FormTextTestComponent
+      formTextProps={{ textTransform: "lower-case" }}
       onChange={{
         stringField: v => {
           stringValue = v;
         }
       }}
-      formTextProps={{ textTransform: "lower-case" }}
     />
   );
 
@@ -61,12 +60,12 @@ test("performs text transform upper case", async ({ mount }) => {
   // Act
   const component = await mount(
     <FormTextTestComponent
+      formTextProps={{ textTransform: "upper-case" }}
       onChange={{
         stringField: v => {
           stringValue = v;
         }
       }}
-      formTextProps={{ textTransform: "upper-case" }}
     />
   );
 

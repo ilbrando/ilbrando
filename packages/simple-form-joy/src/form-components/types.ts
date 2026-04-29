@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
 import { FormManager } from "@ilbrando/simple-form";
 import { PropKeysOf } from "@ilbrando/utils";
 import { FormControlProps } from "@mui/joy";
+import { ReactNode } from "react";
 
 export type FormFieldBaseSharedProps = Pick<FormControlProps, "size"> & {
   label?: ReactNode;

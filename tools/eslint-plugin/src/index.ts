@@ -27,6 +27,7 @@ const base = defineConfig([
       "no-template-curly-in-string": "error",
       "no-use-before-define": "error",
 
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],
@@ -52,9 +53,16 @@ const react = defineConfig([
           type: "alphabetical",
           order: "asc",
           ignoreCase: true,
-          groups: ["reserved", "unknown", "multiline", "shorthand", "callback"],
+          groups: ["reserved", "formManager", "formFieldName", "formValue", "formLabel", "formPlaceholder", "formErrorMessage", "unknown", "multiline", "boolean", "shorthand", "callback"],
           customGroups: {
             reserved: "^(key|ref)$",
+            formManager: "^(formManager)$",
+            formFieldName: "^(fieldName)$",
+            formValue: "^(value|checked)$",
+            formLabel: "^(label)$",
+            formPlaceholder: "^(label)$",
+            formErrorMessage: "^(errorMessage)$",
+            boolean: "^(is[A-Z])",
             callback: "^on[A-Z]"
           }
         }

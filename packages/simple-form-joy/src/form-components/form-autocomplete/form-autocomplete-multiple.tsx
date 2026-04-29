@@ -1,12 +1,10 @@
-import { useMemo } from "react";
 import { getEditor } from "@ilbrando/simple-form";
 import { OmitSafe, PropKeysOf, single } from "@ilbrando/utils";
 import { Autocomplete, AutocompleteProps } from "@mui/joy";
-
+import { useMemo } from "react";
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseArrayProps } from "../types";
-
 import { AutocompleteOption } from "./form-autocomplete-types";
 
 type FormValue = string | number;
@@ -29,16 +27,17 @@ export const FormAutocompleteMultiple = function <TFields, TFormValue extends Fo
   return (
     <FormControlWrapper
       label={label}
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={editor.isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={editor.isDisabled}
+      isRequired={editor.isRequired}
     >
       <Autocomplete
-        multiple={true}
         value={editor.value ?? []}
+        getOptionLabel={optionValue => single(options, x => x.value === optionValue).label}
+        multiple={true}
         options={optionValues}
         onChange={(_, v, reason) => {
           switch (reason) {
@@ -52,7 +51,6 @@ export const FormAutocompleteMultiple = function <TFields, TFormValue extends Fo
             default:
           }
         }}
-        getOptionLabel={optionValue => single(options, x => x.value === optionValue).label}
         {...rest}
       />
     </FormControlWrapper>

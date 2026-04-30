@@ -2,9 +2,9 @@
   "extends": "../../tsconfig-code-quality.json",
   "compilerOptions": {
     "target": "esnext",
-    "module": "nodenext",
+    "module": "esnext",
     "lib": ["esnext"],
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "paths": { "src/*": ["./src/*"] },
     "declaration": true,

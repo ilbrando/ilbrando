@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { parseArgs } from "node:util";
+
 import { hasValue } from "@ilbrando/utils";
 
 import { importTexts } from "./import-texts.js";

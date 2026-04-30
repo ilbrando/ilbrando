@@ -1,7 +1,8 @@
-import path from "node:path";
-import { IndentationText, Project, SyntaxKind } from "ts-morph";
 import { access, readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { hasValue } from "@ilbrando/utils";
+import { IndentationText, Project, SyntaxKind } from "ts-morph";
 
 import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast-utils.js";
 import type { JsonFileTranslations } from "./types.js";

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import { Box, Stack, Typography } from "@mui/joy";
+import { ReactNode } from "react";
 
 export type GroupBoxProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ export const GroupBox = (props: GroupBoxProps) => {
   const { title, footer, children, fullHeight = false } = props;
 
   return (
-    <Box bgcolor={t => t.palette.neutral["100"]} p={1} height={fullHeight ? 1 : undefined} borderRadius={theme => `${theme.radius}px`}>
+    <Box bgcolor={t => t.palette.neutral["100"]} borderRadius={theme => `${theme.radius}px`} height={fullHeight ? 1 : undefined} p={1}>
       <Stack gap={0}>
         {title && <Typography level="title-md">{title}</Typography>}
         <Stack>{children}</Stack>

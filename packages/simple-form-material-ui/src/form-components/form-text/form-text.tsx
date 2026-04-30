@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { assertNever, hasValue, hasValueAndNotEmptyString, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { TextField, TextFieldProps } from "@mui/material";
-
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
@@ -37,10 +36,10 @@ export const FormText = function <TFields, TFieldName extends PropKeysOf<TFields
     <TextField
       value={editor.value ?? ""}
       helperText={editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : undefined)}
-      error={hasValue(editor.errorMessage)}
-      onChange={e => editor.setFieldValue(parseValue(e.target.value))}
-      required={editor.isRequired}
       disabled={editor.isDisabled}
+      error={hasValue(editor.errorMessage)}
+      required={editor.isRequired}
+      onChange={e => editor.setFieldValue(parseValue(e.target.value))}
       {...rest}
     />
   );

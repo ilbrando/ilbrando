@@ -14,7 +14,7 @@ export const DialogActionsOkCancel = (props: DialogActionsOkCancelProps) => {
 
   return (
     <DialogActions>
-      <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2}>
+      <Box display="grid" gap={2} gridTemplateColumns="1fr 1fr">
         <OkButton disabled={disabled || submitDisabled} onClick={onSubmit} />
         <CancelButton disabled={disabled} onClick={onCancel} />
       </Box>

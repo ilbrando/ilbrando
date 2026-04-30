@@ -1,6 +1,6 @@
-import { Box, Button, IconButton, Table } from "@mui/joy";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
+import { Box, Button, IconButton, Table } from "@mui/joy";
 
 import { PersonDialog } from "./person-dialog";
 import { usePersonsStore } from "./use-persons-store";

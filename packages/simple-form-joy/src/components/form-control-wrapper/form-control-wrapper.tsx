@@ -19,7 +19,7 @@ export const FormControlWrapper = (props: FormControlWrapperProps) => {
   const showErrorMessage = hasValue(errorMessage) || effectiveReserveSpaceForValidationMessage;
 
   return (
-    <FormControl disabled={isDisabled} error={hasValue(errorMessage)} required={isRequired} size={size} sx={sxFormControl}>
+    <FormControl size={size} sx={sxFormControl} disabled={isDisabled} error={hasValue(errorMessage)} required={isRequired}>
       {hasValue(label) && <FormLabel>{label}</FormLabel>}
       {children}
       {showErrorMessage && <FormHelperText>{errorMessage ?? (effectiveReserveSpaceForValidationMessage ? <>{"\u00A0"}</> : null)}</FormHelperText>}

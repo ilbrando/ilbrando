@@ -64,7 +64,7 @@ const react = defineConfig([
             formLabel: "^(label)$",
             formPlaceholder: "^(label)$",
             formErrorMessage: "^(errorMessage)$",
-            boolean: "^(is[A-Z])",
+            boolean: "^(is[A-Z]|disabled|required|readonly|error)",
             callback: "^on[A-Z]"
           }
         }

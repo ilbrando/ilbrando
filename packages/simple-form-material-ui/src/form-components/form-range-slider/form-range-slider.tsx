@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { FormControl, FormHelperText, InputLabel, Slider, SliderProps } from "@mui/material";
-
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
@@ -34,9 +33,9 @@ export const FormRangeSlider = function <TFields, TFieldName extends PropKeysOf<
   };
 
   return (
-    <FormControl error={hasValue(editor.errorMessage)} disabled={editor.isDisabled} required={editor.isRequired} fullWidth>
+    <FormControl disabled={editor.isDisabled} error={hasValue(editor.errorMessage)} required={editor.isRequired} fullWidth>
       {hasValue(label) && <InputLabel>{label}</InputLabel>}
-      <Slider value={hasValue(editor.value) ? [editor.value.from, editor.value.to] : [0, 0]} onChange={handleOnChange} disabled={editor.isDisabled} {...rest} />
+      <Slider value={hasValue(editor.value) ? [editor.value.from, editor.value.to] : [0, 0]} disabled={editor.isDisabled} onChange={handleOnChange} {...rest} />
       <FormHelperText>{editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : null)}</FormHelperText>
     </FormControl>
   );

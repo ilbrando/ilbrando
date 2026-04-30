@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, RadioGroupProps, useTheme } from "@mui/material";
-
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
@@ -32,7 +31,7 @@ export const FormRadioGroup = function <TFields, TFormValue extends FormValue, T
   const isValueString = options.length > 0 && typeof options[0].value === "string";
 
   return (
-    <FormControl error={hasValue(editor.errorMessage)} disabled={editor.isDisabled} required={editor.isRequired}>
+    <FormControl disabled={editor.isDisabled} error={hasValue(editor.errorMessage)} required={editor.isRequired}>
       <FormLabel component="label">{label}</FormLabel>
       <RadioGroup value={editor.value ?? ""} onChange={(_, v) => editor.setFieldValue((isValueString ? v : parseInt(v)) as TFormValue)} {...rest}>
         {options.map(item => (
@@ -40,7 +39,7 @@ export const FormRadioGroup = function <TFields, TFormValue extends FormValue, T
             key={item.value}
             value={item.value}
             label={item.label}
-            control={<Radio sx={{ paddingTop: theme.spacing(0.5), paddingBottom: theme.spacing(0.5) }} color="primary" disabled={editor.isDisabled} />}
+            control={<Radio color="primary" sx={{ paddingTop: theme.spacing(0.5), paddingBottom: theme.spacing(0.5) }} disabled={editor.isDisabled} />}
           />
         ))}
       </RadioGroup>

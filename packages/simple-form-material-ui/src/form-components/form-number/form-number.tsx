@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import { getEditor, useLocalization } from "@ilbrando/simple-form";
 import { hasValue, hasValueAndNotEmptyString, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { TextField, TextFieldProps } from "@mui/material";
-
+import { useEffect, useState } from "react";
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
@@ -33,7 +32,9 @@ export const FormNumber = function <TFields, TFieldName extends PropKeysOf<TFiel
     <TextField
       value={textBoxValue}
       helperText={editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : undefined)}
+      disabled={editor.isDisabled}
       error={hasValue(editor.errorMessage)}
+      required={editor.isRequired}
       onChange={e => {
         if (!hasValueAndNotEmptyString(e.target.value)) {
           setTextBoxValue("");
@@ -49,8 +50,6 @@ export const FormNumber = function <TFields, TFieldName extends PropKeysOf<TFiel
         setTextBoxValue(e.target.value);
         editor.setFieldValue(editor.value, texts.invalidValue);
       }}
-      required={editor.isRequired}
-      disabled={editor.isDisabled}
       {...rest}
     />
   );

@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { FormControl, FormHelperText, FormLabel, ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from "@mui/material";
-
+import { ReactNode } from "react";
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseArrayProps } from "../types";
@@ -30,7 +29,7 @@ export const FormToggleGroup = function <TFields, TFormValue extends FormValue, 
   const editor = getEditor<TFields, TFormValue>(formManager, fieldName, disabled);
 
   return (
-    <FormControl error={hasValue(editor.errorMessage)} disabled={editor.isDisabled} required={editor.isRequired}>
+    <FormControl disabled={editor.isDisabled} error={hasValue(editor.errorMessage)} required={editor.isRequired}>
       <FormLabel component="label">{label}</FormLabel>
       <ToggleButtonGroup value={editor.value} onChange={(_, v) => editor.setFieldValue(v)} {...rest}>
         {options.map(item => (

@@ -1,3 +1,4 @@
+import { ensureValue } from "@ilbrando/utils";
 import { Project } from "ts-morph";
 import { describe, expect, test } from "vitest";
 
@@ -46,15 +47,16 @@ describe("getLanguageObject", () => {
       en: { key1: "English" }
     };
   `);
-  const translationsObj = findTranslationsObject(sourceFile)!;
+  const translationsObj = findTranslationsObject(sourceFile);
+  expect(translationsObj).not.toBeNull();
 
   test("returns the object for an existing language", () => {
-    const result = getLanguageObject(translationsObj, "da");
+    const result = getLanguageObject(ensureValue(translationsObj), "da");
     expect(result).toBeDefined();
   });
 
   test("returns undefined for a missing language", () => {
-    const result = getLanguageObject(translationsObj, "no");
+    const result = getLanguageObject(ensureValue(translationsObj), "no");
     expect(result).toBeUndefined();
   });
 });
@@ -66,10 +68,12 @@ describe("getKeyValues", () => {
         da: { greeting: "Hej", farewell: "Farvel" }
       };
     `);
-    const translationsObj = findTranslationsObject(sourceFile)!;
-    const daObj = getLanguageObject(translationsObj, "da")!;
+    const translationsObj = findTranslationsObject(sourceFile);
+    expect(translationsObj).not.toBeNull();
+    const daObj = getLanguageObject(ensureValue(translationsObj), "da");
+    expect(daObj).not.toBeNull();
 
-    const result = getKeyValues(daObj);
+    const result = getKeyValues(ensureValue(daObj));
 
     expect(result).toEqual([
       { key: "greeting", value: "Hej" },
@@ -81,9 +85,11 @@ describe("getKeyValues", () => {
     const sourceFile = makeSourceFile(`
       const translations: Localization = { da: {} };
     `);
-    const translationsObj = findTranslationsObject(sourceFile)!;
-    const daObj = getLanguageObject(translationsObj, "da")!;
+    const translationsObj = findTranslationsObject(sourceFile);
+    expect(translationsObj).not.toBeNull();
+    const daObj = getLanguageObject(ensureValue(translationsObj), "da");
+    expect(daObj).not.toBeNull();
 
-    expect(getKeyValues(daObj)).toEqual([]);
+    expect(getKeyValues(ensureValue(daObj))).toEqual([]);
   });
 });

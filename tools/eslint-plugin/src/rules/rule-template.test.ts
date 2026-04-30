@@ -19,15 +19,15 @@ describe("rule-template", () => {
       { code: "const x = 1;" },
       {
         code: "const EXAMPLE_FORBIDDEN_NAME = 1;",
-        options: [{ allowedNames: ["EXAMPLE_FORBIDDEN_NAME"] }],
-      },
+        options: [{ allowedNames: ["EXAMPLE_FORBIDDEN_NAME"] }]
+      }
     ],
     invalid: [
       {
         code: "const EXAMPLE_FORBIDDEN_NAME = 1;",
         errors: [{ messageId: "forbidden", data: { name: "EXAMPLE_FORBIDDEN_NAME" } }],
-        output: "const REPLACEMENT = 1;",
-      },
-    ],
+        output: "const REPLACEMENT = 1;"
+      }
+    ]
   });
 });

@@ -26,7 +26,7 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "test": "playwright test -c playwright-ct.config.ts",
+    "test": "tsc --noEmit && playwright test -c playwright-ct.config.ts",
     "test-ui": "playwright test -c playwright-ct.config.ts --ui",
     "eslint": "eslint --max-warnings=0"
   },

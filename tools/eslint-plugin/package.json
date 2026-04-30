@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "tsdown",
-    "test": "vitest run",
+    "test": "tsc --noEmit && vitest run",
     "eslint": "eslint --max-warnings=0"
   },
   "dependencies": {

@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/utils
 
-This log was last generated on Sat, 25 Apr 2026 12:24:11 GMT and should not be manually modified.
+This log was last generated on Fri, 01 May 2026 15:30:12 GMT and should not be manually modified.
+
+## 2.1.7
+Fri, 01 May 2026 15:30:12 GMT
+
+### Patches
+
+- Refactor ES lint plugin
 
 ## 2.1.6
 Sat, 25 Apr 2026 12:24:11 GMT

@@ -2,6 +2,29 @@
   "name": "@ilbrando/simple-form-material-ui",
   "entries": [
     {
+      "version": "4.0.5",
+      "tag": "@ilbrando/simple-form-material-ui_v4.0.5",
+      "date": "Fri, 01 May 2026 15:30:12 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Refactor ES lint plugin"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/utils\" to `2.1.7`"
+          },
+          {
+            "comment": "Updating dependency \"@ilbrando/simple-form\" to `3.2.3`"
+          },
+          {
+            "comment": "Updating dependency \"@ilbrando/eslint-plugin\" to `2.0.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "4.0.4",
       "tag": "@ilbrando/simple-form-material-ui_v4.0.4",
       "date": "Sat, 25 Apr 2026 12:24:11 GMT",

@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/eslint-plugin
 
-This log was last generated on Sat, 25 Apr 2026 12:24:11 GMT and should not be manually modified.
+This log was last generated on Fri, 01 May 2026 15:30:12 GMT and should not be manually modified.
+
+## 2.0.0
+Fri, 01 May 2026 15:30:12 GMT
+
+### Breaking changes
+
+- Refactor ES lint plugin
 
 ## 1.0.8
 Sat, 25 Apr 2026 12:24:11 GMT

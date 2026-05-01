@@ -2,6 +2,18 @@
   "name": "@ilbrando/eslint-plugin",
   "entries": [
     {
+      "version": "2.0.0",
+      "tag": "@ilbrando/eslint-plugin_v2.0.0",
+      "date": "Fri, 01 May 2026 15:30:12 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "Refactor ES lint plugin"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.8",
       "tag": "@ilbrando/eslint-plugin_v1.0.8",
       "date": "Sat, 25 Apr 2026 12:24:11 GMT",

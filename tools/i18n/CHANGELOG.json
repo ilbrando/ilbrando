@@ -2,6 +2,26 @@
   "name": "@ilbrando/i18n",
   "entries": [
     {
+      "version": "2.0.4",
+      "tag": "@ilbrando/i18n_v2.0.4",
+      "date": "Fri, 01 May 2026 15:30:12 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Refactor ES lint plugin"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/utils\" to `2.1.7`"
+          },
+          {
+            "comment": "Updating dependency \"@ilbrando/eslint-plugin\" to `2.0.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.3",
       "tag": "@ilbrando/i18n_v2.0.3",
       "date": "Mon, 27 Apr 2026 09:14:20 GMT",

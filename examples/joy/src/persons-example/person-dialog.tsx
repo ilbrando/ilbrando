@@ -2,7 +2,6 @@ import { getFormManager, useFormDefinition } from "@ilbrando/simple-form";
 import { FormNumber, FormRangeSlider, FormText } from "@ilbrando/simple-form-joy";
 import { ensureValue, hasValue, singleOrUndefined } from "@ilbrando/utils";
 import { Alert, DialogContent, DialogTitle, Modal, ModalDialog, Stack } from "@mui/joy";
-
 import { DialogActionsOkCancel, FormSubmitError, GroupBox } from "src/components";
 import { fakeBackendRequest } from "src/utils";
 
@@ -63,11 +62,11 @@ export const PersonDialog = (props: PersonDialogProps) => {
               to: 16
             }
           : hasValue(person?.workingHours)
-          ? {
-              from: person.workingHours.fromHour,
-              to: person.workingHours.toHour
-            }
-          : undefined
+            ? {
+                from: person.workingHours.fromHour,
+                to: person.workingHours.toHour
+              }
+            : undefined
       }
     }
   });
@@ -118,12 +117,12 @@ export const PersonDialog = (props: PersonDialogProps) => {
               </Stack>
             </GroupBox>
             <GroupBox title="Working hours">
-              <FormRangeSlider formManager={fm} fieldName="workingHours" min={3} max={23} marks={[...Array(23 - 3 + 1).keys()].map(x => ({ value: x + 3, label: (x + 3).toString() }))} />
+              <FormRangeSlider formManager={fm} fieldName="workingHours" marks={[...Array(23 - 3 + 1).keys()].map(x => ({ value: x + 3, label: (x + 3).toString() }))} max={23} min={3} />
             </GroupBox>
           </Stack>
         </DialogContent>
         {/* We set submitDiabled when no changes - only when editing. When adding the user should be allowed to click the button to reveal validation errors for all fields */}
-        <DialogActionsOkCancel disabled={isSubmitting} submitDisabled={!isAddingPerson && !fm.hasModifiedValues} onSubmit={handleSubmit} onCancel={closeDialog} />
+        <DialogActionsOkCancel submitDisabled={!isAddingPerson && !fm.hasModifiedValues} disabled={isSubmitting} onCancel={closeDialog} onSubmit={handleSubmit} />
       </ModalDialog>
     </Modal>
   );

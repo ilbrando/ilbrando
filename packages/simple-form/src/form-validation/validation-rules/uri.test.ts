@@ -1,5 +1,5 @@
-import { describe, test } from "vitest";
 import { renderHook } from "@testing-library/react";
+import { describe, test } from "vitest";
 
 import { useUriValidationRules } from "./uri";
 import { assertValidationResult, genericErrorMessage } from "./validation-test-utils";

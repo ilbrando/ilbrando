@@ -1,83 +1,94 @@
-import { rules } from "./rules/index.js";
-import { parse, parseForESLint } from "@typescript-eslint/parser";
 import type { FlatConfig } from "@typescript-eslint/utils/ts-eslint";
-import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintJs from "@eslint/js";
-import eslintPrettierConfig from "eslint-config-prettier";
+import tseslint from "typescript-eslint";
+import eslintConfigPrettier from "eslint-config-prettier";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import stylisticPlugin from "@stylistic/eslint-plugin";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
 import pkg from "../package.json" with { type: "json" };
+import { defineConfig } from "eslint/config";
+import { reduxSliceName, ruleName as reduxSliceNameRuleName } from "./rules/redux-slice-name";
+import { ruleName as i18nKeyNameRuleName, i18nKeyName } from "./rules/i18n-key-name";
 
-type ConfigKeys = "recommended";
-
-const { name, version } = pkg as {
-  name: string;
-  version: string;
-};
-
-const configs: Record<ConfigKeys, FlatConfig.Config> = {
-  recommended: {
-    languageOptions: {
-      parser: { parse, parseForESLint },
-      globals: {
-        console: "readonly"
-      }
-    },
+const base = defineConfig([
+  { ignores: ["**/dist/**"] },
+  eslintJs.configs.recommended,
+  tseslint.configs.strict,
+  eslintConfigPrettier,
+  {
     plugins: {
-      "@typescript-eslint": typescriptEslintPlugin,
-      "@ilbrando": undefined as unknown as FlatConfig.Plugin
+      "simple-import-sort": simpleImportSort
     },
     rules: {
-      ...eslintJs.configs.recommended.rules,
-      ...typescriptEslintPlugin.configs.recommended.rules,
-      ...eslintPrettierConfig.rules,
+      "array-callback-return": "error",
+      "no-console": "error",
+      "no-duplicate-imports": "error",
+      "no-promise-executor-return": "error",
+      "no-self-compare": "error",
+      "no-template-curly-in-string": "error",
+      "no-use-before-define": "error",
 
-      "default-case-last": "warn",
-      "default-case": "off",
-      "no-case-declarations": "off",
-      "no-console": "warn",
-      "no-else-return": "warn",
-      "no-template-curly-in-string": "warn",
-      "sort-imports": [
-        "warn",
-        {
-          ignoreDeclarationSort: true,
-          ignoreCase: true
-        }
-      ],
-
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],
 
-      "no-duplicate-imports": "warn",
-
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        process.env.NODE_ENV === "production" ? "error" : "warn",
-        {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_"
-        }
-      ],
-
-      "@ilbrando/export-order": process.env.NODE_ENV === "production" ? "error" : "warn",
-      "@ilbrando/import-order": process.env.NODE_ENV === "production" ? "error" : "warn",
-      "@ilbrando/import-path": ["error", { alias: "src", rootPath: "src" }],
-      "@ilbrando/jsx-string-attribute": "error",
-      "@ilbrando/prefer-type": "error",
-      "@ilbrando/no-partial-spread": "error"
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error"
     }
   }
+]);
+
+const react = defineConfig([
+  ...base,
+  reactHooksPlugin.configs["recommended-latest"],
+  {
+    plugins: {
+      perfectionist: perfectionistPlugin,
+      "@stylistic": stylisticPlugin
+    },
+    rules: {
+      "react-hooks/exhaustive-deps": "error",
+      "@stylistic/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
+      "perfectionist/sort-jsx-props": [
+        "error",
+        {
+          type: "alphabetical",
+          order: "asc",
+          ignoreCase: true,
+          groups: ["reserved", "formManager", "formFieldName", "formValue", "formLabel", "formPlaceholder", "formErrorMessage", "unknown", "multiline", "boolean", "shorthand", "callback"],
+          customGroups: {
+            reserved: "^(key|ref)$",
+            formManager: "^(formManager)$",
+            formFieldName: "^(fieldName)$",
+            formValue: "^(value|checked)$",
+            formLabel: "^(label)$",
+            formPlaceholder: "^(label)$",
+            formErrorMessage: "^(errorMessage)$",
+            boolean: "^(is[A-Z]|disabled|required|readonly|error)",
+            callback: "^on[A-Z]"
+          }
+        }
+      ]
+    }
+  }
+]);
+
+const rules = {
+  [reduxSliceNameRuleName]: reduxSliceName,
+  [i18nKeyNameRuleName]: i18nKeyName
 };
 
-const plugin: FlatConfig.Plugin & { configs: typeof configs } = {
+const configs = { base, react };
+
+const plugin: FlatConfig.Plugin & { configs: typeof configs; rules: typeof rules } = {
   meta: {
-    name,
-    version
+    name: pkg.name,
+    version: pkg.version
   },
   rules,
   configs
 };
-
-configs.recommended.plugins!["@ilbrando"] = plugin;
 
 export default plugin;

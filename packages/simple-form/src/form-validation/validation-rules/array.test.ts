@@ -1,5 +1,5 @@
-import { describe, test } from "vitest";
 import { renderHook } from "@testing-library/react";
+import { describe, test } from "vitest";
 
 import { useArrayValidationRules } from "./array";
 import { assertValidationResult, genericErrorMessage } from "./validation-test-utils";

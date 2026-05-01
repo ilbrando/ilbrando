@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/experimental-ct-react";
 
 import { FormRangeSliderValue } from "../form-range-slider";
-
 import { FormRangeSliderTestComponent } from "./form-range-slider-test-component";
 
 test("updates form state when receiving input", async ({ mount }) => {
@@ -35,7 +34,9 @@ test("updates form state when receiving input", async ({ mount }) => {
 
   // Assert
   expect(rangeValue).not.toBeNull();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   expect(rangeValue!.from).toBeGreaterThan(initialValue.from);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   expect(rangeValue!.to).toBe(initialValue.to);
 });
 

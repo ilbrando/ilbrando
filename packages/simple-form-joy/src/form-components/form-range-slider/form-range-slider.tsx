@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { Box, Slider, SliderProps } from "@mui/joy";
-
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseProps } from "../types";
@@ -31,15 +30,15 @@ export const FormRangeSlider = function <TFields, TFieldName extends PropKeysOf<
   return (
     <FormControlWrapper
       label={label}
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={editor.isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={editor.isDisabled}
+      isRequired={editor.isRequired}
     >
       <Box px={1}>
-        <Slider value={hasValue(editor.value) ? [editor.value.from, editor.value.to] : [0, 0]} onChange={handleOnChange} disabled={editor.isDisabled} {...rest} />
+        <Slider value={hasValue(editor.value) ? [editor.value.from, editor.value.to] : [0, 0]} disabled={editor.isDisabled} onChange={handleOnChange} {...rest} />
       </Box>
     </FormControlWrapper>
   );

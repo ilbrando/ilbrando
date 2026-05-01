@@ -1,5 +1,4 @@
 import { expect, test } from "@playwright/experimental-ct-react";
-
 import { alwaysErrorValidatorMessage } from "src/test-components/use-test-form";
 
 import { FormCheckboxTestComponent } from "./form-checkbox-test-component";

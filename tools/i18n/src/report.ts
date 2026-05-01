@@ -1,7 +1,8 @@
-import path from "node:path";
-import { Project } from "ts-morph";
 import { glob } from "node:fs/promises";
+import path from "node:path";
+
 import { assertNever, hasValue } from "@ilbrando/utils";
+import { Project } from "ts-morph";
 
 import { findTranslationsObject, getKeyValues, getLanguageObject } from "./ast-utils.js";
 import type { FileTranslations, JsonFileTranslations, KeyEntry } from "./types.js";

@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { Radio, RadioGroup, RadioGroupProps } from "@mui/joy";
-
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseProps } from "../types";
@@ -29,12 +28,12 @@ export const FormRadioGroup = function <TFields, TFormValue extends FormValue, T
   return (
     <FormControlWrapper
       label={label}
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={editor.isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={editor.isDisabled}
+      isRequired={editor.isRequired}
     >
       <RadioGroup value={editor.value ?? ""} onChange={e => editor.setFieldValue((isValueString ? e.target.value : parseInt(e.target.value)) as TFormValue)} {...rest}>
         {options.map(item => (

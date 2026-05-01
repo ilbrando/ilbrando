@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { FormControl, FormControlLabel, FormHelperText, Switch, SwitchProps } from "@mui/material";
-
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
@@ -21,11 +20,11 @@ export const FormSwitch = function <TFields, TFieldName extends PropKeysOf<TFiel
   const editor = getEditor<TFields, FormValue>(formManager, fieldName, disabled);
 
   return (
-    <FormControl error={hasValue(editor.errorMessage)} disabled={editor.isDisabled} required={editor.isRequired}>
+    <FormControl disabled={editor.isDisabled} error={hasValue(editor.errorMessage)} required={editor.isRequired}>
       <FormControlLabel
         label={`${label}${editor.isRequired ? " *" : ""}`}
+        control={<Switch checked={editor.value ?? false} disabled={editor.isDisabled} required={editor.isRequired} onChange={e => editor.setFieldValue(e.target.checked)} {...rest} />}
         labelPlacement="end"
-        control={<Switch checked={editor.value ?? false} onChange={e => editor.setFieldValue(e.target.checked)} required={editor.isRequired} disabled={editor.isDisabled} {...rest} />}
       />
       <FormHelperText>{editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : null)}</FormHelperText>
     </FormControl>

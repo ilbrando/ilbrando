@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import { getEditor, useLocalization } from "@ilbrando/simple-form";
 import { hasValue, hasValueAndNotEmptyString, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { Input, InputProps } from "@mui/joy";
-
+import { useEffect, useState } from "react";
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseProps } from "../types";
@@ -31,15 +30,16 @@ export const FormNumber = function <TFields, TFieldName extends PropKeysOf<TFiel
   return (
     <FormControlWrapper
       label={label}
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={isDisabled}
+      isRequired={editor.isRequired}
     >
       <Input
         value={textBoxValue}
+        readOnly={readOnly}
         onChange={e => {
           if (!hasValueAndNotEmptyString(e.target.value)) {
             setTextBoxValue("");
@@ -55,7 +55,6 @@ export const FormNumber = function <TFields, TFieldName extends PropKeysOf<TFiel
           setTextBoxValue(e.target.value);
           editor.setFieldValue(editor.value, texts.invalidValue);
         }}
-        readOnly={readOnly}
         {...rest}
       />
     </FormControlWrapper>

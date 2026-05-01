@@ -1,5 +1,4 @@
 import { hasValue } from "@ilbrando/utils";
-
 import { useLocalization } from "src/localization";
 
 import { Validator } from "../validation-types";
@@ -13,6 +12,6 @@ export const useUriValidationRules = () => {
     uri:
       (errorMessage?: string): Validator<string> =>
       value =>
-        hasValue(value) && !uriRegEx.test(value) ? errorMessage ?? texts.uri : undefined
+        hasValue(value) && !uriRegEx.test(value) ? (errorMessage ?? texts.uri) : undefined
   };
 };

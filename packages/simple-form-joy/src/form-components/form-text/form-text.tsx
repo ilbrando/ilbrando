@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { assertNever, hasValue, hasValueAndNotEmptyString, OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { Input, InputProps } from "@mui/joy";
-
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseProps } from "../types";
@@ -36,14 +35,14 @@ export const FormText = function <TFields, TFieldName extends PropKeysOf<TFields
   return (
     <FormControlWrapper
       label={label}
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={isDisabled}
+      isRequired={editor.isRequired}
     >
-      <Input value={editor.value ?? ""} onChange={e => editor.setFieldValue(parseValue(e.target.value))} readOnly={readOnly} {...rest} />
+      <Input value={editor.value ?? ""} readOnly={readOnly} onChange={e => editor.setFieldValue(parseValue(e.target.value))} {...rest} />
     </FormControlWrapper>
   );
 };

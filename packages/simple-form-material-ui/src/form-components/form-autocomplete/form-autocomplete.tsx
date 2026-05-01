@@ -1,12 +1,10 @@
-import { useMemo } from "react";
 import { getEditor } from "@ilbrando/simple-form";
 import { hasValue, OmitSafe, PropKeysOf, single } from "@ilbrando/utils";
 import { Autocomplete, AutocompleteProps, Box, TextField } from "@mui/material";
-
+import { useMemo } from "react";
 import { useMuiFormUtils } from "src/utils";
 
 import { FormFieldBaseProps } from "../types";
-
 import { AutocompleteOption } from "./form-autocomplete-types";
 
 type FormValue = string | number;
@@ -33,7 +31,29 @@ export const FormAutocomplete = function <TFields, TFormValue extends FormValue,
   return (
     <Autocomplete
       value={editor.value}
+      getOptionLabel={option => single(options, x => x.value === option).label}
       options={optionValues}
+      renderInput={params => (
+        <TextField
+          {...params}
+          label={label}
+          helperText={editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : undefined)}
+          placeholder={placeholder}
+          inputProps={{
+            ...params.inputProps,
+            autoComplete: "new-password" // disable autocomplete and autofill
+          }}
+          disabled={editor.isDisabled}
+          error={hasValue(editor.errorMessage)}
+          required={editor.isRequired}
+        />
+      )}
+      renderOption={(rp, option) => (
+        <Box component="li" {...rp}>
+          {single(options, x => x.value === option).label}
+        </Box>
+      )}
+      disabled={editor.isDisabled}
       onChange={(_, v, reason) => {
         switch (reason) {
           case "clear":
@@ -47,28 +67,6 @@ export const FormAutocomplete = function <TFields, TFormValue extends FormValue,
             break;
         }
       }}
-      disabled={editor.isDisabled}
-      getOptionLabel={option => single(options, x => x.value === option).label}
-      renderOption={(rp, option) => (
-        <Box component="li" {...rp}>
-          {single(options, x => x.value === option).label}
-        </Box>
-      )}
-      renderInput={params => (
-        <TextField
-          {...params}
-          error={hasValue(editor.errorMessage)}
-          helperText={editor.errorMessage ?? (effectiveReserveSpaceForValidationMessage ? " " : undefined)}
-          disabled={editor.isDisabled}
-          required={editor.isRequired}
-          label={label}
-          placeholder={placeholder}
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: "new-password" // disable autocomplete and autofill
-          }}
-        />
-      )}
       {...rest}
     />
   );

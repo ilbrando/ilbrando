@@ -1,6 +1,6 @@
 import { hasValue, OmitSafe } from "@ilbrando/utils";
-import { Button, ButtonProps } from "@mui/joy";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { Button, ButtonProps } from "@mui/joy";
 
 export const OkButton = ({ children, ...rest }: OmitSafe<ButtonProps, "color" | "variant">) => {
   return (
@@ -12,7 +12,7 @@ export const OkButton = ({ children, ...rest }: OmitSafe<ButtonProps, "color" | 
 
 export const CancelButton = ({ children, ...rest }: OmitSafe<ButtonProps, "startDecorator">) => {
   return (
-    <Button variant="soft" startDecorator={<CancelIcon />} {...rest}>
+    <Button startDecorator={<CancelIcon />} variant="soft" {...rest}>
       {hasValue(children) ? children : "Cancel"}
     </Button>
   );

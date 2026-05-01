@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
 import { hasValue } from "@ilbrando/utils";
 import { FormControl, FormHelperText, FormLabel } from "@mui/joy";
-
-import { useJoyFormUtils } from "src/utils";
+import { ReactNode } from "react";
 import { FormFieldBaseSharedProps } from "src/form-components/types";
+import { useJoyFormUtils } from "src/utils";
 
 export type FormControlWrapperProps = FormFieldBaseSharedProps & {
   isRequired: boolean;
@@ -20,7 +19,7 @@ export const FormControlWrapper = (props: FormControlWrapperProps) => {
   const showErrorMessage = hasValue(errorMessage) || effectiveReserveSpaceForValidationMessage;
 
   return (
-    <FormControl size={size} error={hasValue(errorMessage)} required={isRequired} disabled={isDisabled} sx={sxFormControl}>
+    <FormControl size={size} sx={sxFormControl} disabled={isDisabled} error={hasValue(errorMessage)} required={isRequired}>
       {hasValue(label) && <FormLabel>{label}</FormLabel>}
       {children}
       {showErrorMessage && <FormHelperText>{errorMessage ?? (effectiveReserveSpaceForValidationMessage ? <>{"\u00A0"}</> : null)}</FormHelperText>}

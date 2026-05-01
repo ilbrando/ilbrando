@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
 import { isNumber } from "@ilbrando/utils";
+import { createContext, useContext } from "react";
 
 import { localeTexts } from "./locales";
 import { defaultLocale, Formatter, LocalizationContextValue, UseLocalization } from "./localization-types";

@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/experimental-ct-react";
 
-import { FormControlWrapper } from "../form-control-wrapper";
 import { TestWrapper } from "../../../test-components/test-wrapper";
+import { FormControlWrapper } from "../form-control-wrapper";
 
 test.describe("form-control-wrapper", () => {
   test("renders content", async ({ mount }) => {
@@ -11,7 +11,7 @@ test.describe("form-control-wrapper", () => {
     // Act
     const component = await mount(
       <TestWrapper>
-        <FormControlWrapper isRequired={false} isDisabled={false}>
+        <FormControlWrapper isDisabled={false} isRequired={false}>
           {expectedValue}
         </FormControlWrapper>
       </TestWrapper>
@@ -28,7 +28,7 @@ test.describe("form-control-wrapper", () => {
     // Act
     const component = await mount(
       <TestWrapper>
-        <FormControlWrapper isRequired={false} isDisabled={false} label={expectedValue}>
+        <FormControlWrapper label={expectedValue} isDisabled={false} isRequired={false}>
           CONTENT
         </FormControlWrapper>
       </TestWrapper>
@@ -45,7 +45,7 @@ test.describe("form-control-wrapper", () => {
     // Act
     const component = await mount(
       <TestWrapper>
-        <FormControlWrapper isRequired={false} isDisabled={false} errorMessage={expectedValue}>
+        <FormControlWrapper errorMessage={expectedValue} isDisabled={false} isRequired={false}>
           CONTENT
         </FormControlWrapper>
       </TestWrapper>

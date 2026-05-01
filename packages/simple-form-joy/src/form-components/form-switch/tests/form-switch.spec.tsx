@@ -1,5 +1,4 @@
 import { expect, test } from "@playwright/experimental-ct-react";
-
 import { alwaysErrorValidatorMessage } from "src/test-components/use-test-form";
 
 import { FormSwitchTestComponent } from "./form-switch-test-component";

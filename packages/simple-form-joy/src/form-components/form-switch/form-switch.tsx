@@ -1,7 +1,6 @@
 import { getEditor } from "@ilbrando/simple-form";
 import { OmitSafe, PropKeysOf } from "@ilbrando/utils";
 import { Switch, SwitchProps, Typography } from "@mui/joy";
-
 import { FormControlWrapper } from "src/components";
 
 import { FormFieldBaseProps } from "../types";
@@ -20,19 +19,19 @@ export const FormSwitch = function <TFields, TFieldName extends PropKeysOf<TFiel
   const editor = getEditor<TFields, FormValue>(formManager, fieldName, disabled);
 
   const Editor = (
-    <Switch checked={editor.value ?? false} onChange={e => editor.setFieldValue(e.target.checked)} sx={{ ...sx, ml: labelPlacement === "start" ? 1 : undefined, mr: labelPlacement === "end" ? 1 : undefined }} {...rest} />
+    <Switch checked={editor.value ?? false} sx={{ ...sx, ml: labelPlacement === "start" ? 1 : undefined, mr: labelPlacement === "end" ? 1 : undefined }} onChange={e => editor.setFieldValue(e.target.checked)} {...rest} />
   );
 
   return (
     <FormControlWrapper
-      size={size}
       errorMessage={editor.errorMessage}
       reserveSpaceForValidationMessage={reserveSpaceForValidationMessage}
-      isRequired={editor.isRequired}
-      isDisabled={editor.isDisabled}
+      size={size}
       sxFormControl={sxFormControl}
+      isDisabled={editor.isDisabled}
+      isRequired={editor.isRequired}
     >
-      <Typography component="label" startDecorator={labelPlacement === "end" && Editor} endDecorator={labelPlacement === "start" && Editor}>
+      <Typography component="label" endDecorator={labelPlacement === "start" && Editor} startDecorator={labelPlacement === "end" && Editor}>
         {label}
       </Typography>
     </FormControlWrapper>

@@ -1,5 +1,5 @@
-import { beforeAll, describe, expect, test } from "vitest";
 import { deepMerge, DeepPartial } from "@ilbrando/utils";
+import { beforeAll, describe, expect, test } from "vitest";
 
 import { FormState } from "./form-types";
 import { getFieldValues, getHasErrors, touchAllFieldsAndUpdateState } from "./utils";

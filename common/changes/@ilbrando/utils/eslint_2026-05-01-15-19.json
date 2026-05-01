@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/utils",
+      "comment": "Refactor ES lint plugin",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/utils"
+}

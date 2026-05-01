@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/eslint-plugin",
+      "comment": "Refactor ES lint plugin",
+      "type": "major"
+    }
+  ],
+  "packageName": "@ilbrando/eslint-plugin"
+}

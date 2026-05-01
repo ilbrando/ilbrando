@@ -19,7 +19,7 @@ const schema: JSONSchema.JSONSchema4 = {
   required: ["rootPath"]
 };
 
-const ruleName = "redux-slice-name";
+export const ruleName = "redux-slice-name";
 const reduxCreateSliceFunctionName = "createSlice";
 const reduxNamePropertyName = "name";
 

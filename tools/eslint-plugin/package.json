@@ -25,8 +25,7 @@
   },
   "scripts": {
     "build": "tsdown",
-    "test": "tsc --noEmit && vitest run",
-    "eslint": "eslint --max-warnings=0"
+    "test": "tsc --noEmit && vitest run"
   },
   "dependencies": {
     "@typescript-eslint/scope-manager": "~8.59.1",

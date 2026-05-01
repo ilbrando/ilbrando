@@ -20,6 +20,11 @@ describe("rule-template", () => {
         filename: "/project/src/features/counter-store.ts",
         options: [{ rootPath: ".src" }],
         code: 'const slice = createSlice({name:"features:counter"})'
+      },
+      {
+        filename: "/project/src/features/counter-store.ts",
+        options: [{ rootPath: ".src", reduxNamePrefix: "PREFIX@:" }],
+        code: 'const slice = createSlice({name:"PREFIX@:features:counter"})'
       }
     ],
     invalid: [

@@ -8,7 +8,7 @@ import stylisticPlugin from "@stylistic/eslint-plugin";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import pkg from "../package.json" with { type: "json" };
 import { defineConfig } from "eslint/config";
-import { ruleTemplate } from "./rules/rule-template";
+import { reduxSliceName } from "./rules/redux-slice-name";
 
 const base = defineConfig([
   { ignores: ["**/dist/**"] },
@@ -75,7 +75,7 @@ const react = defineConfig([
 ]);
 
 const rules = {
-  "rule-template": ruleTemplate
+  "redux-slice-name": reduxSliceName
 };
 
 const configs = { base, react };

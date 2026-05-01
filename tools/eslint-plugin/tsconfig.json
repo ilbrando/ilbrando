@@ -8,7 +8,8 @@
     "skipLibCheck": true,
     "paths": { "src/*": ["./src/*"] },
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "types": ["node"]
   },
   "include": ["src"]
 }

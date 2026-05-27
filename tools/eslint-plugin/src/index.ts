@@ -57,9 +57,10 @@ const react = defineConfig([
           type: "alphabetical",
           order: "asc",
           ignoreCase: true,
-          groups: ["reserved", "formManager", "formFieldName", "formValue", "formLabel", "formPlaceholder", "formErrorMessage", "unknown", "multiline", "boolean", "shorthand", "callback"],
+          groups: ["reserved", "className", "formManager", "formFieldName", "formValue", "formLabel", "formPlaceholder", "formErrorMessage", "unknown", "multiline", "boolean", "shorthand", "callback"],
           customGroups: {
             reserved: "^(key|ref)$",
+            className: "^(className[s]?)$",
             formManager: "^(formManager)$",
             formFieldName: "^(fieldName)$",
             formValue: "^(value|checked)$",

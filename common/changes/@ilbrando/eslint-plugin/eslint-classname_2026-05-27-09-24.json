@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/eslint-plugin",
+      "comment": "Add clasName to props sort order",
+      "type": "major"
+    }
+  ],
+  "packageName": "@ilbrando/eslint-plugin"
+}

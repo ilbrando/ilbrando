@@ -2,6 +2,18 @@
   "name": "@ilbrando/eslint-plugin",
   "entries": [
     {
+      "version": "3.0.0",
+      "tag": "@ilbrando/eslint-plugin_v3.0.0",
+      "date": "Sat, 03 Oct 2026 07:58:22 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "Add clasName to props sort order"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.0",
       "tag": "@ilbrando/eslint-plugin_v2.0.0",
       "date": "Fri, 01 May 2026 15:30:12 GMT",

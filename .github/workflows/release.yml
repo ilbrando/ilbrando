@@ -22,12 +22,15 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
-      # Trusted publishing requires npm 11.5.1 or later. pnpm publish delegates to the npm CLI.
+      # Trusted publishing requires npm 11.5.1 and staged publishing 11.15.0 or later. pnpm publish delegates to the npm CLI.
       - name: Update npm
-        run: npm install -g npm@^11.5.1 && npm --version
+        run: npm install -g npm@^11.15.0 && npm --version
       - name: Rush install
         run: node common/scripts/install-run-rush.js install
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
+      # The packages are staged on npm and must be approved (with 2FA) on npmjs.com or with "npm stage approve" before they go live.
       - name: Rush publish
         run: node common/scripts/install-run-rush.js publish --apply --publish --set-access-level public --target-branch main
+        env:
+          npm_config_npm_path: ${{ github.workspace }}/.github/scripts/npm-stage-publish.sh

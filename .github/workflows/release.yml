@@ -1,11 +1,16 @@
 name: Release
 on:
   workflow_dispatch:
+permissions:
+  # Rush pushes the "Bump versions" commit and the version tags
+  contents: write
+  # Lets npm authenticate with OIDC (trusted publishing) and generate provenance
+  id-token: write
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
       - name: Git config user
@@ -13,12 +18,16 @@ jobs:
         with:
           name: "release"
           email: "release@ilbrando.dk"
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
+          package-manager-cache: false
+      # Trusted publishing requires npm 11.5.1 or later. pnpm publish delegates to the npm CLI.
+      - name: Update npm
+        run: npm install -g npm@^11.5.1 && npm --version
       - name: Rush install
         run: node common/scripts/install-run-rush.js install
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
       - name: Rush publish
-        run: node common/scripts/install-run-rush.js publish --apply --publish --npm-auth-token ${{ secrets.NPMTOKEN }} --set-access-level public --target-branch main
+        run: node common/scripts/install-run-rush.js publish --apply --publish --set-access-level public --target-branch main

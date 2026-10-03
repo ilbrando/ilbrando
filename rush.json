@@ -453,6 +453,11 @@
       "packageName": "@ilbrando/i18n",
       "projectFolder": "tools/i18n",
       "shouldPublish": true
+    },
+    {
+      "packageName": "@ilbrando/rollup-plugin-combine-translations",
+      "projectFolder": "tools/rollup-plugin-combine-translations",
+      "shouldPublish": true
     }
   ]
 }

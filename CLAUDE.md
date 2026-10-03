@@ -13,6 +13,8 @@ This is a **Rush + PNPM** monorepo publishing a family of React form library pac
 | `@ilbrando/simple-form-joy` | `packages/simple-form-joy` | Yes |
 | `@ilbrando/simple-form-material-ui` | `packages/simple-form-material-ui` | Yes |
 | `@ilbrando/eslint-plugin` | `tools/eslint-plugin` | Yes |
+| `@ilbrando/i18n` | `tools/i18n` | Yes |
+| `@ilbrando/rollup-plugin-combine-translations` | `tools/rollup-plugin-combine-translations` | Yes |
 | `@ilbrando/example-joy` | `examples/joy` | No |
 | `@ilbrando/example-storybook` | `examples/storybook` | No |
 
@@ -39,7 +41,7 @@ rush test --only @ilbrando/simple-form
 
 To run commands directly inside a package (faster for local dev):
 ```bash
-# Vitest (simple-form, utils, eslint-plugin)
+# Vitest (simple-form, utils, eslint-plugin, i18n, rollup-plugin-combine-translations)
 cd packages/simple-form
 rush-pnpm run test                        # all tests
 

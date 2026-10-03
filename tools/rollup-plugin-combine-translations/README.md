@@ -2,6 +2,12 @@
 
 A Rollup/Vite plugin that lets you keep [i18next](https://www.i18next.com/) translations next to the code that uses them and combines them into one resource object at build time.
 
+## Installation
+
+```bash
+npm install --save-dev @ilbrando/rollup-plugin-combine-translations
+```
+
 ## Usage
 
 Add the plugin:

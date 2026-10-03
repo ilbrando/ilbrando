@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/eslint-plugin
 
-This log was last generated on Fri, 01 May 2026 15:30:12 GMT and should not be manually modified.
+This log was last generated on Sat, 03 Oct 2026 07:49:25 GMT and should not be manually modified.
+
+## 3.0.0
+Sat, 03 Oct 2026 07:49:25 GMT
+
+### Breaking changes
+
+- Add clasName to props sort order
 
 ## 2.0.0
 Fri, 01 May 2026 15:30:12 GMT

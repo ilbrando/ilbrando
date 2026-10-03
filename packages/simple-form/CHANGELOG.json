@@ -2,6 +2,21 @@
   "name": "@ilbrando/simple-form",
   "entries": [
     {
+      "version": "3.2.4",
+      "tag": "@ilbrando/simple-form_v3.2.4",
+      "date": "Sat, 03 Oct 2026 07:49:25 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/utils\" to `2.1.8`"
+          },
+          {
+            "comment": "Updating dependency \"@ilbrando/eslint-plugin\" to `3.0.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "3.2.3",
       "tag": "@ilbrando/simple-form_v3.2.3",
       "date": "Fri, 01 May 2026 15:30:12 GMT",

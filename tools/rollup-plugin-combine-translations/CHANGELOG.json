@@ -2,6 +2,18 @@
   "name": "@ilbrando/rollup-plugin-combine-translations",
   "entries": [
     {
+      "version": "2.0.1",
+      "tag": "@ilbrando/rollup-plugin-combine-translations_v2.0.1",
+      "date": "Sat, 03 Oct 2026 09:09:59 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add installation section to README"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.0",
       "tag": "@ilbrando/rollup-plugin-combine-translations_v2.0.0",
       "date": "Sat, 03 Oct 2026 07:58:22 GMT",

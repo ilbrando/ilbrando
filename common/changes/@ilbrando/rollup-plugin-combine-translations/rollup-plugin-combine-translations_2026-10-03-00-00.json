@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/rollup-plugin-combine-translations",
+      "comment": "Move rollup-plugin-combine-translations from Ranking Manager",
+      "type": "major"
+    }
+  ],
+  "packageName": "@ilbrando/rollup-plugin-combine-translations"
+}

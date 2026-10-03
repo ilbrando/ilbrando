@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/rollup-plugin-combine-translations",
+      "comment": "Add installation section to README",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/rollup-plugin-combine-translations"
+}

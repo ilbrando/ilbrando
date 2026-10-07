@@ -8,13 +8,13 @@ import type { CombinedTranslations, TranslationTree } from "./types.js";
 
 type Collected = {
   translations: CombinedTranslations;
-  /** All the source files that were examined. Changes to these can change the result. */
-  files: string[];
+  /** The translations of each source file that was examined (empty if it has none). Changes to these files can change the result. */
+  files: Record<string, CombinedTranslations>;
 };
 
-const emptyCollected: Collected = { translations: {}, files: [] };
+const emptyCollected: Collected = { translations: {}, files: {} };
 
-const isSourceFile = (fileName: string) => (fileName.endsWith(".ts") || fileName.endsWith(".tsx")) && !fileName.endsWith(".d.ts");
+export const isSourceFile = (fileName: string) => (fileName.endsWith(".ts") || fileName.endsWith(".tsx")) && !fileName.endsWith(".d.ts");
 
 const isEmpty = (tree: TranslationTree) => Object.keys(tree).length === 0;
 
@@ -32,9 +32,12 @@ const addNamed = (result: CombinedTranslations, name: string, translations: Comb
     .filter(([, tree]) => !isEmpty(tree))
     .reduce<CombinedTranslations>((acc, [language, tree]) => ({ ...acc, [language]: mergeTrees(acc[language] ?? {}, { [name]: tree }, keyPath) }), result);
 
+/** Reads the translations of one source file, or an empty object if it has none. */
+export const readTranslations = async (filePath: string, languages: string[]): Promise<CombinedTranslations> => parseTranslations(await readFile(filePath, "utf8"), filePath, languages) ?? {};
+
 const collectFile = async (filePath: string, languages: string[]): Promise<Collected> => {
-  const code = await readFile(filePath, "utf8");
-  return { translations: parseTranslations(code, filePath, languages) ?? {}, files: [filePath] };
+  const translations = await readTranslations(filePath, languages);
+  return { translations, files: { [filePath]: translations } };
 };
 
 const collectDirectory = async (dirPath: string, languages: string[], keyPath: string[]): Promise<Collected> => {
@@ -52,7 +55,7 @@ const collectDirectory = async (dirPath: string, languages: string[], keyPath: s
   return children.filter(hasValue).reduce<Collected>(
     (acc, { name, collected }) => ({
       translations: addNamed(acc.translations, name, collected.translations, keyPath),
-      files: [...acc.files, ...collected.files]
+      files: { ...acc.files, ...collected.files }
     }),
     emptyCollected
   );

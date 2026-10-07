@@ -61,6 +61,10 @@ declare module "*.trans" {
 
 The [i18n tool](../i18n) works with the same `translations` objects.
 
+## Vite dev server
+
+When a file's translations change, or a file with translations is added or removed, the `.trans` module is updated and Vite reloads the page (unless an importer of the `.trans` module accepts hot updates). Code changes that leave the translations alone are handled by Vite as usual.
+
 ## Options
 
 | Option      | Default        | Description                                                                                                  |

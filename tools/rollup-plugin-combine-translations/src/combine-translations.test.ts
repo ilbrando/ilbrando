@@ -36,7 +36,7 @@ describe("combineTranslations", () => {
     });
   });
 
-  test("returns all examined files so they can be watched", async () => {
+  test("returns the translations of every examined file", async () => {
     const rootPath = await setup({
       "a.ts": translationsFile(`{ a: "a" }`),
       "sub/b.ts": "export const b = 1;",
@@ -46,7 +46,7 @@ describe("combineTranslations", () => {
 
     const result = await combineTranslations(rootPath, languages);
 
-    expect(result.files.toSorted()).toEqual([path.join(rootPath, "a.ts"), path.join(rootPath, "sub", "b.ts")]);
+    expect(result.files).toEqual({ [path.join(rootPath, "a.ts")]: { da: { a: "a" } }, [path.join(rootPath, "sub", "b.ts")]: {} });
   });
 
   test("always includes every language", async () => {

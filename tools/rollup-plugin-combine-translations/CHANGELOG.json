@@ -2,6 +2,18 @@
   "name": "@ilbrando/rollup-plugin-combine-translations",
   "entries": [
     {
+      "version": "2.0.2",
+      "tag": "@ilbrando/rollup-plugin-combine-translations_v2.0.2",
+      "date": "Wed, 07 Oct 2026 10:36:22 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Reload the page in the Vite dev server when translations change"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.1",
       "tag": "@ilbrando/rollup-plugin-combine-translations_v2.0.1",
       "date": "Sat, 03 Oct 2026 09:25:26 GMT",

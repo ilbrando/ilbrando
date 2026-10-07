@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/rollup-plugin-combine-translations
 
-This log was last generated on Sat, 03 Oct 2026 09:25:26 GMT and should not be manually modified.
+This log was last generated on Wed, 07 Oct 2026 10:36:22 GMT and should not be manually modified.
+
+## 2.0.2
+Wed, 07 Oct 2026 10:36:22 GMT
+
+### Patches
+
+- Reload the page in the Vite dev server when translations change
 
 ## 2.0.1
 Sat, 03 Oct 2026 09:25:26 GMT

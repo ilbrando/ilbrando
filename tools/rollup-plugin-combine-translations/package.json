@@ -1,7 +1,7 @@
 {
   "name": "@ilbrando/rollup-plugin-combine-translations",
   "description": "Rollup/Vite plugin that combines translations declared next to the code into one i18next resource object.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "author": {
     "name": "ilbrando"

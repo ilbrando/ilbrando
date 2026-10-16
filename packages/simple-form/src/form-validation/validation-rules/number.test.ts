@@ -42,12 +42,12 @@ describe("number", () => {
     ${2}  | ${2}      | ${undefined}
     ${4}  | ${2}      | ${undefined}
     ${3}  | ${2}      | ${genericErrorMessage}
-  `("dividableBy($parameter)($value) => $expected", ({ value, parameter, expected }) => {
+  `("divisibleBy($parameter)($value) => $expected", ({ value, parameter, expected }) => {
     // Arrange
     const { result } = renderHook(() => useNumberValidationRules());
 
     // Act
-    const actual = result.current.dividableBy(parameter)(value);
+    const actual = result.current.divisibleBy(parameter)(value);
 
     // Assert
     assertValidationResult(expected, actual);

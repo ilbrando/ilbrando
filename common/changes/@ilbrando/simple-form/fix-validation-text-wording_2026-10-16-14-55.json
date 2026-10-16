@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/simple-form",
+      "comment": "Clearer Danish and English validation texts: the same wording for every lower and upper limit, dates and times as earliest and latest, \"mailadresse\" and \"divisible by\"",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/simple-form"
+}

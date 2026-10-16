@@ -17,9 +17,9 @@ export const useNumberValidationRules = () => {
       value =>
         hasValue(value) && value > maxValue ? (errorMessage ?? texts.max(maxValue)) : undefined,
 
-    dividableBy:
-      (dividable: number, errorMessage?: string): Validator<number> =>
+    divisibleBy:
+      (divisor: number, errorMessage?: string): Validator<number> =>
       value =>
-        hasValue(value) && value % dividable !== 0 ? (errorMessage ?? texts.dividableBy(dividable)) : undefined
+        hasValue(value) && value % divisor !== 0 ? (errorMessage ?? texts.divisibleBy(divisor)) : undefined
   };
 };

@@ -29,7 +29,7 @@ export type LocalizationTexts = {
   email: string;
   min: (minValue: number) => string;
   max: (maxValue: number) => string;
-  dividableBy: (dividable: number) => string;
+  divisibleBy: (divisor: number) => string;
   minLength: (minValue: number) => string;
   maxLength: (maxValue: number) => string;
   length: (stringLength: number) => string;

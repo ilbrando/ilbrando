@@ -22,7 +22,7 @@ export const daDK = (format: Formatter): Partial<LocalizationTexts> => ({
   email: "Ugyldig mailadresse.",
   min: (minValue: number) => `Skal være mindst ${format(minValue)}.`,
   max: (maxValue: number) => `Må højst være ${format(maxValue)}.`,
-  dividableBy: (dividable: number) => `Skal være delelig med ${format(dividable)}.`,
+  divisibleBy: (divisor: number) => `Skal være delelig med ${format(divisor)}.`,
   minLength: (minValue: number) => `Skal være mindst ${format(minValue)} tegn.`,
   maxLength: (maxValue: number) => `Må højst være ${format(maxValue)} tegn.`,
   length: (stringLength: number) => `Skal være præcis ${format(stringLength)} tegn.`,

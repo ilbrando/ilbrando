@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/simple-form",
+      "comment": "Breaking: the number rule `dividableBy` is renamed `divisibleBy`, and its text in `LocalizationTexts` likewise",
+      "type": "major"
+    }
+  ],
+  "packageName": "@ilbrando/simple-form"
+}

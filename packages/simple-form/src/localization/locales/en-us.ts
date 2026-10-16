@@ -22,7 +22,7 @@ export const enUS = (format: Formatter): LocalizationTexts => ({
   email: "Invalid email address.",
   min: (minValue: number) => `Must be at least ${format(minValue)}.`,
   max: (maxValue: number) => `Must be at most ${format(maxValue)}.`,
-  dividableBy: (dividable: number) => `Must be divisible by ${format(dividable)}.`,
+  divisibleBy: (divisor: number) => `Must be divisible by ${format(divisor)}.`,
   minLength: (minValue: number) => `Must be at least ${format(minValue)} characters.`,
   maxLength: (maxValue: number) => `Must be at most ${format(maxValue)} characters.`,
   length: (stringLength: number) => `Must be exactly ${format(stringLength)} characters.`,

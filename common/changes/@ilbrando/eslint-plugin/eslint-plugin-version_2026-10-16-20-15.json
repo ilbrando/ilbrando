@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ilbrando/eslint-plugin",
+      "comment": "Report the package's own version in meta.version (it was one version behind), and accept any eslint 10 from 10.2.1",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ilbrando/eslint-plugin"
+}

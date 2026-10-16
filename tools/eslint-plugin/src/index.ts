@@ -6,8 +6,8 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
-import pkg from "../package.json" with { type: "json" };
 import { defineConfig } from "eslint/config";
+import { readFileSync } from "fs";
 import { reduxSliceName, ruleName as reduxSliceNameRuleName } from "./rules/redux-slice-name";
 import { ruleName as i18nKeyNameRuleName, i18nKeyName } from "./rules/i18n-key-name";
 
@@ -82,6 +82,10 @@ const rules = {
 };
 
 const configs = { base, react };
+
+// Read when the plugin loads rather than bundled at build time: the release builds before "rush publish --apply" bumps the
+// version, so a bundled package.json is one version behind.
+const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as { name: string; version: string };
 
 const plugin: FlatConfig.Plugin & { configs: typeof configs; rules: typeof rules } = {
   meta: {

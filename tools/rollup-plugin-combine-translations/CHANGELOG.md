@@ -1,6 +1,11 @@
 # Change Log - @ilbrando/rollup-plugin-combine-translations
 
-This log was last generated on Wed, 07 Oct 2026 10:36:22 GMT and should not be manually modified.
+This log was last generated on Fri, 16 Oct 2026 21:20:09 GMT and should not be manually modified.
+
+## 2.0.3
+Fri, 16 Oct 2026 21:20:09 GMT
+
+_Version update only_
 
 ## 2.0.2
 Wed, 07 Oct 2026 10:36:22 GMT

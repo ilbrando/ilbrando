@@ -1,6 +1,13 @@
 # Change Log - @ilbrando/eslint-plugin
 
-This log was last generated on Sat, 03 Oct 2026 07:58:22 GMT and should not be manually modified.
+This log was last generated on Fri, 16 Oct 2026 21:25:53 GMT and should not be manually modified.
+
+## 3.0.1
+Fri, 16 Oct 2026 21:25:53 GMT
+
+### Patches
+
+- Report the package's own version in meta.version (it was one version behind), and accept any eslint 10 from 10.2.1
 
 ## 3.0.0
 Sat, 03 Oct 2026 07:58:22 GMT

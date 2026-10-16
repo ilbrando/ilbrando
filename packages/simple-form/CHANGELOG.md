@@ -1,6 +1,11 @@
 # Change Log - @ilbrando/simple-form
 
-This log was last generated on Fri, 16 Oct 2026 15:26:14 GMT and should not be manually modified.
+This log was last generated on Fri, 16 Oct 2026 21:25:53 GMT and should not be manually modified.
+
+## 4.0.1
+Fri, 16 Oct 2026 21:25:53 GMT
+
+_Version update only_
 
 ## 4.0.0
 Fri, 16 Oct 2026 15:26:14 GMT

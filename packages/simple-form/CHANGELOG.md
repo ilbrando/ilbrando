@@ -1,6 +1,17 @@
 # Change Log - @ilbrando/simple-form
 
-This log was last generated on Sat, 03 Oct 2026 07:58:22 GMT and should not be manually modified.
+This log was last generated on Fri, 16 Oct 2026 15:26:14 GMT and should not be manually modified.
+
+## 4.0.0
+Fri, 16 Oct 2026 15:26:14 GMT
+
+### Breaking changes
+
+- Breaking: the number rule `dividableBy` is renamed `divisibleBy`, and its text in `LocalizationTexts` likewise
+
+### Patches
+
+- Clearer Danish and English validation texts: the same wording for every lower and upper limit, dates and times as earliest and latest, "mailadresse" and "divisible by"
 
 ## 3.2.4
 Sat, 03 Oct 2026 07:58:22 GMT

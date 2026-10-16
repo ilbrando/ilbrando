@@ -2,6 +2,18 @@
   "name": "@ilbrando/simple-form-joy",
   "entries": [
     {
+      "version": "3.0.7",
+      "tag": "@ilbrando/simple-form-joy_v3.0.7",
+      "date": "Fri, 16 Oct 2026 15:26:14 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ilbrando/simple-form\" to `4.0.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "3.0.6",
       "tag": "@ilbrando/simple-form-joy_v3.0.6",
       "date": "Sat, 03 Oct 2026 07:58:22 GMT",
